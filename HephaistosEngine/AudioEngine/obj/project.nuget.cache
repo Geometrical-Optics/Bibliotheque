@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "29q+p5EfR2JAmAjvMjXdtjCUWtIvtoKsFBB2ESdjpItik5WK7HDBZ1tqEx1sOojTefOXeTo10YShPurc6hzZeQ==",
+  "dgSpecHash": "CX5XSLV2RylU5h1QmGI/uBLB0txynzBjPRsJE0AY09OfXz7Oo9GLceHL66+ek5ESXoFnmNDhtLOqjcmMlJvG9A==",
   "success": true,
-  "projectFilePath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/AudioEngine/AudioEngine.csproj",
+  "projectFilePath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/AudioEngine.csproj",
   "expectedPackageFiles": [
     "/home/kenny/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "/home/kenny/.nuget/packages/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg.sha512",

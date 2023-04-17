@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "hzRTahGdiTE883BGWc6djeC1dSB/F3iTAj7pbTPJtkpPz+juztPOLIUJZIMDhOgVKWD+0wx94cNcphgCgtUzeQ==",
+  "success": true,
+  "projectFilePath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/IA/IA.csproj",
+  "expectedPackageFiles": [
+    "/home/kenny/.nuget/packages/csfml/2.5.0/csfml.2.5.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/sfml.graphics/2.5.0/sfml.graphics.2.5.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/sfml.system/2.5.0/sfml.system.2.5.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/sfml.window/2.5.0/sfml.window.2.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tcDbkJRKWp4GYNptCMY4fV7KsRXwFOPpIyTlqTgJEyRGokSyAIfoj57SffxTpjA9TvlcVX09INmNkCRZymFgtA==",
+  "dgSpecHash": "I6R5IAeRfXMZbpVkodg0UAByXGdDx5fw37sL7tU6eWAPP1d8V6JIi3boVzAu+iXYow1xgY6L5RMrZmZmrZm6eg==",
   "success": true,
-  "projectFilePath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Engine/Engine.csproj",
-  "expectedPackageFiles": [
-    "/home/kenny/.nuget/packages/csfml/2.5.0/csfml.2.5.0.nupkg.sha512",
-    "/home/kenny/.nuget/packages/sfml.graphics/2.5.0/sfml.graphics.2.5.0.nupkg.sha512",
-    "/home/kenny/.nuget/packages/sfml.system/2.5.0/sfml.system.2.5.0.nupkg.sha512",
-    "/home/kenny/.nuget/packages/sfml.window/2.5.0/sfml.window.2.5.0.nupkg.sha512"
-  ],
+  "projectFilePath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Engine/Engine.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

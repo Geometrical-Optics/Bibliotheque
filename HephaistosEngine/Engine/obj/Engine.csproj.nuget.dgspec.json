@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Engine/Engine.csproj": {}
+    "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Engine/Engine.csproj": {}
   },
   "projects": {
-    "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Engine/Engine.csproj": {
+    "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Engine/Engine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Engine/Engine.csproj",
+        "projectUniqueName": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Engine/Engine.csproj",
         "projectName": "Engine",
-        "projectPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Engine/Engine.csproj",
+        "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Engine/Engine.csproj",
         "packagesPath": "/home/kenny/.nuget/packages/",
-        "outputPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Engine/obj/",
+        "outputPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Engine/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/kenny/.nuget/NuGet/NuGet.Config"
@@ -26,17 +26,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/IA/IA/IA.csproj": {
-                "projectPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/IA/IA/IA.csproj"
-              },
-              "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Map/Map/Map.csproj": {
-                "projectPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Map/Map/Map.csproj"
-              },
-              "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/Physix.csproj": {
-                "projectPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/Physix.csproj"
-              },
-              "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Raycaster/Raycaster/Raycaster.csproj": {
-                "projectPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Raycaster/Raycaster/Raycaster.csproj"
+              "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix/Physix.csproj": {
+                "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix/Physix.csproj"
               }
             }
           }
@@ -70,130 +61,14 @@
         }
       }
     },
-    "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/IA/IA/IA.csproj": {
+    "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix/Physix.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/IA/IA/IA.csproj",
-        "projectName": "IA",
-        "projectPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/IA/IA/IA.csproj",
-        "packagesPath": "/home/kenny/.nuget/packages/",
-        "outputPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/IA/IA/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/kenny/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Map/Map/Map.csproj": {
-                "projectPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Map/Map/Map.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/home/kenny/.dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Map/Map/Map.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Map/Map/Map.csproj",
-        "projectName": "Map",
-        "projectPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Map/Map/Map.csproj",
-        "packagesPath": "/home/kenny/.nuget/packages/",
-        "outputPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Map/Map/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/kenny/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "dependencies": {
-            "SFML.Graphics": {
-              "target": "Package",
-              "version": "[2.5.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/home/kenny/.dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/Physix.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/Physix.csproj",
+        "projectUniqueName": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix/Physix.csproj",
         "projectName": "Physix",
-        "projectPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/Physix.csproj",
+        "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix/Physix.csproj",
         "packagesPath": "/home/kenny/.nuget/packages/",
-        "outputPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/obj/",
+        "outputPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/kenny/.nuget/NuGet/NuGet.Config"
@@ -219,69 +94,6 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "/home/kenny/.dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Raycaster/Raycaster/Raycaster.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Raycaster/Raycaster/Raycaster.csproj",
-        "projectName": "Raycaster",
-        "projectPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Raycaster/Raycaster/Raycaster.csproj",
-        "packagesPath": "/home/kenny/.nuget/packages/",
-        "outputPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Raycaster/Raycaster/obj/",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "/home/kenny/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Map/Map/Map.csproj": {
-                "projectPath": "/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Map/Map/Map.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "dependencies": {
-            "SFML.Graphics": {
-              "target": "Package",
-              "version": "[2.5.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",

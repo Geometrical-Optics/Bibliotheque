@@ -9,10 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\IA\IA\IA.csproj" />
-      <ProjectReference Include="..\Map\Map\Map.csproj" />
       <ProjectReference Include="..\Physix\Physix\Physix.csproj" />
-      <ProjectReference Include="..\Raycaster\Raycaster\Raycaster.csproj" />
     </ItemGroup>
     
 

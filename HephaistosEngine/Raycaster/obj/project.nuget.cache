@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "jxAV8FKhLKCgU3flbUeFRD8d7X04uvIgZLadjYBO1RulucRvh7/RY25Hr/R3GLSoAutDYoh5DfkH1Ty+k6IYTw==",
+  "success": true,
+  "projectFilePath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Raycaster/Raycaster.csproj",
+  "expectedPackageFiles": [
+    "/home/kenny/.nuget/packages/csfml/2.5.0/csfml.2.5.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/sfml.graphics/2.5.0/sfml.graphics.2.5.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/sfml.system/2.5.0/sfml.system.2.5.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/sfml.window/2.5.0/sfml.window.2.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

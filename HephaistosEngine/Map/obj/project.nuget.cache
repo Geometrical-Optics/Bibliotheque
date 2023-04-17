@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "fanTJHblg6aqH71anfNa3+u08ZsOXTvJE+zp1d8nfr3jzdK6fHyVWTVO5HRP+tis+Uiuhy2IhxiGxcSqB6Kezw==",
+  "success": true,
+  "projectFilePath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Map/Map.csproj",
+  "expectedPackageFiles": [
+    "/home/kenny/.nuget/packages/csfml/2.5.0/csfml.2.5.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/sfml.graphics/2.5.0/sfml.graphics.2.5.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/sfml.system/2.5.0/sfml.system.2.5.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/sfml.window/2.5.0/sfml.window.2.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
