@@ -290,19 +290,6 @@
           }
         }
       },
-      "Engine/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "Physix": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Engine.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Engine.dll": {}
-        }
-      },
       "Map/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -314,16 +301,6 @@
         },
         "runtime": {
           "bin/placeholder/Map.dll": {}
-        }
-      },
-      "Physix/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "compile": {
-          "bin/placeholder/Physix.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Physix.dll": {}
         }
       }
     }
@@ -437,25 +414,14 @@
         "sfml.window.nuspec"
       ]
     },
-    "Engine/1.0.0": {
-      "type": "project",
-      "path": "../Engine/Engine.csproj",
-      "msbuildProject": "../Engine/Engine.csproj"
-    },
     "Map/1.0.0": {
       "type": "project",
       "path": "../Map/Map.csproj",
       "msbuildProject": "../Map/Map.csproj"
-    },
-    "Physix/1.0.0": {
-      "type": "project",
-      "path": "../Physix/Physix/Physix.csproj",
-      "msbuildProject": "../Physix/Physix/Physix.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Engine >= 1.0.0",
       "Map >= 1.0.0"
     ]
   },
@@ -484,9 +450,6 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Engine/Engine.csproj": {
-              "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Engine/Engine.csproj"
-            },
             "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Map/Map.csproj": {
               "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Map/Map.csproj"
             }

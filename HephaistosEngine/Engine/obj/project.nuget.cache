@@ -1,8 +1,26 @@
 {
   "version": 2,
-  "dgSpecHash": "I6R5IAeRfXMZbpVkodg0UAByXGdDx5fw37sL7tU6eWAPP1d8V6JIi3boVzAu+iXYow1xgY6L5RMrZmZmrZm6eg==",
+  "dgSpecHash": "B5xokiEttk3yZFKsILnwRwYdiU2A3npUORSSEY8ETPow7avc9darr4DFziMKuM8CWypSIY44L3cavWBpdyVUUw==",
   "success": true,
   "projectFilePath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Engine/Engine.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/kenny/.nuget/packages/csfml/2.5.0/csfml.2.5.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/microsoft.win32.registry/4.7.0/microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/microsoft.win32.systemevents/7.0.0/microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/naudio/2.1.0/naudio.2.1.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/naudio.asio/2.1.0/naudio.asio.2.1.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/naudio.core/2.1.0/naudio.core.2.1.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/naudio.midi/2.1.0/naudio.midi.2.1.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/naudio.wasapi/2.1.0/naudio.wasapi.2.1.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/naudio.winmm/2.1.0/naudio.winmm.2.1.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/sfml.graphics/2.5.0/sfml.graphics.2.5.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/sfml.system/2.5.0/sfml.system.2.5.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/sfml.window/2.5.0/sfml.window.2.5.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/system.drawing.common/7.0.0/system.drawing.common.7.0.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/system.security.accesscontrol/4.7.0/system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/system.security.principal.windows/4.7.0/system.security.principal.windows.4.7.0.nupkg.sha512",
+    "/home/kenny/.nuget/packages/system.windows.extensions/8.0.0-preview.3.23174.8/system.windows.extensions.8.0.0-preview.3.23174.8.nupkg.sha512"
+  ],
   "logs": []
 }
