@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Bibliotheque</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\IA\IA\IA.csproj" />
+      <ProjectReference Include="..\Map\Map\Map.csproj" />
+      <ProjectReference Include="..\Physix\Physix\Physix.csproj" />
+      <ProjectReference Include="..\Raycaster\Raycaster\Raycaster.csproj" />
+    </ItemGroup>
+    
+
+</Project>

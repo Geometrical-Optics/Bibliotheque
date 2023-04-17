@@ -1,0 +1,12 @@
+/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/bin/Debug/net7.0/Physix.deps.json
+/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/bin/Debug/net7.0/Physix.dll
+/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/bin/Debug/net7.0/Physix.pdb
+/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/obj/Debug/net7.0/Physix.csproj.AssemblyReference.cache
+/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/obj/Debug/net7.0/Physix.GeneratedMSBuildEditorConfig.editorconfig
+/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/obj/Debug/net7.0/Physix.AssemblyInfoInputs.cache
+/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/obj/Debug/net7.0/Physix.AssemblyInfo.cs
+/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/obj/Debug/net7.0/Physix.csproj.CoreCompileInputs.cache
+/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/obj/Debug/net7.0/Physix.dll
+/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/obj/Debug/net7.0/refint/Physix.dll
+/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/obj/Debug/net7.0/Physix.pdb
+/home/kenny/Documents/ProjetS/togithubwllh/Bibliotheque/Physix/Physix/obj/Debug/net7.0/ref/Physix.dll

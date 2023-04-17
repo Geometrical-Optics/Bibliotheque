@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine", "Engine\Engine.csproj", "{19F22025-8A72-4575-94B1-05E8A777B775}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raycaster", "Raycaster\Raycaster\Raycaster.csproj", "{5052C7FC-EFEA-4C59-A2EF-582C3E39B3C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Physix", "Physix\Physix\Physix.csproj", "{71D43735-8333-4A26-9819-1A7E8808BBF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Map", "Map\Map\Map.csproj", "{0D9E7491-89DB-4EBB-BD09-FB65BD07CD81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IA", "IA\IA\IA.csproj", "{12D1EC9F-C5CE-45C4-B617-D0F6483BA85D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioEngine", "AudioEngine\AudioEngine.csproj", "{7A0E0A86-6469-4A17-B290-88A6E0FF1A4C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19F22025-8A72-4575-94B1-05E8A777B775}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F22025-8A72-4575-94B1-05E8A777B775}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F22025-8A72-4575-94B1-05E8A777B775}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F22025-8A72-4575-94B1-05E8A777B775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5052C7FC-EFEA-4C59-A2EF-582C3E39B3C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5052C7FC-EFEA-4C59-A2EF-582C3E39B3C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5052C7FC-EFEA-4C59-A2EF-582C3E39B3C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5052C7FC-EFEA-4C59-A2EF-582C3E39B3C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71D43735-8333-4A26-9819-1A7E8808BBF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71D43735-8333-4A26-9819-1A7E8808BBF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71D43735-8333-4A26-9819-1A7E8808BBF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71D43735-8333-4A26-9819-1A7E8808BBF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D9E7491-89DB-4EBB-BD09-FB65BD07CD81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D9E7491-89DB-4EBB-BD09-FB65BD07CD81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D9E7491-89DB-4EBB-BD09-FB65BD07CD81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D9E7491-89DB-4EBB-BD09-FB65BD07CD81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12D1EC9F-C5CE-45C4-B617-D0F6483BA85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12D1EC9F-C5CE-45C4-B617-D0F6483BA85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12D1EC9F-C5CE-45C4-B617-D0F6483BA85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12D1EC9F-C5CE-45C4-B617-D0F6483BA85D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A0E0A86-6469-4A17-B290-88A6E0FF1A4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A0E0A86-6469-4A17-B290-88A6E0FF1A4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A0E0A86-6469-4A17-B290-88A6E0FF1A4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A0E0A86-6469-4A17-B290-88A6E0FF1A4C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
