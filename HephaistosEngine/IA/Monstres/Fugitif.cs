@@ -2,14 +2,25 @@ using System.Text;
 using Map;
 using System;
 using System.Collections.Generic;
+using IA.Item;
 
 namespace IA;
 
 public class Fugitif : NPC
 {
-    public Fugitif(int id, (double X, double Y) coordinates, Box[,] board) : base(id, coordinates, board)
+    private bool Vu;
+    private HealingWeapon Weapon;
+    public int Health;
+    //private Player _player;
+    
+    
+    public Fugitif(int id, (double X, double Y) coordinates, Carte board, float speed) : base(id, coordinates, board, speed)
     {
+        Health = 10;
         Symbol = "F";
+        Vu = false;
+        Weapon = new HealingWeapon("Stick", 5);
+        //_player = new Player();
     }
 
     public double Distance((double X, double Y) coor, (double X, double Y) coordinates_player)
@@ -48,7 +59,7 @@ public class Fugitif : NPC
         Queue<(double, double)> Path = new Queue<(double, double)>();
         Queue<(double, double)> Blacklist = new Queue<(double, double)>();
         
-            if (Board[(int)aux(coordinates_player).X, (int)aux(coordinates_player).Y].IsColliding(aux(coordinates_player)))
+            if (!Board[(int)aux(coordinates_player).X, (int)aux(coordinates_player).Y].IsColliding(aux(coordinates_player)))
                 Blacklist.Enqueue(Coordinates);
             if (!testBlacklist(aux(coordinates_player), Blacklist))
             {
@@ -114,16 +125,16 @@ public class Fugitif : NPC
 
     public (double X, double Y) aux((double X, double Y) coordinates_player)
     {
-        int decx = 0, decy = 0;
+        double decx = 0, decy = 0;
 
         if (Coordinates == coordinates_player)
             return coordinates_player;
 
         if (coordinates_player.X != Coordinates.X)
-            decx = (coordinates_player.X - Coordinates.X > 0) ? -1 : 1;
+            decx = (coordinates_player.X - Coordinates.X > 0) ? -0.1*Speed : 0.1*Speed;
 
         if (Coordinates.Y != coordinates_player.Y)
-            decy = (coordinates_player.Y - Coordinates.Y > 0) ? -1 : 1;
+            decy = (coordinates_player.Y - Coordinates.Y > 0) ? -0.1*Speed : 0.1*Speed;
 
         if (coordinates_player.X == Coordinates.X)
             decx = (Coordinates.X > 0) ? -1 : 1;
@@ -135,8 +146,58 @@ public class Fugitif : NPC
             (Coordinates.X, Coordinates.Y + decy), coordinates_player);
     }
     
-    public void Update((double X, double Y)coordinates_player)
+    public bool HaveToHeal((double X, double Y) coordinates_player)
     {
-        Coordinates = PathFinding(coordinates_player);
+        if (Math.Abs(Coordinates.X - coordinates_player.X) < 3 && Math.Abs(Coordinates.Y - coordinates_player.Y) < 3)
+            return true;
+        else
+            return false;
+    }
+
+    public bool CanMove((double X, double Y) coordinates_player)
+    {
+        if (Math.Abs(Coordinates.X - coordinates_player.X) < Board.GetLength(0)/3 && Math.Abs(Coordinates.Y - coordinates_player.Y) < Board.GetLength(1)/3)
+            return true;
+        else
+            return false;
+    }
+
+    public void Heal((double X, double Y) coordinates_player, Player _player)
+    {
+        _player.Health += Weapon.Care;
+    }
+
+    public void Update((double X, double Y) coordinates_player, Player _player)
+    {
+        if (Health > 0 )
+        {
+            if (_player.IsAlive())
+            {
+                Vu = CanMove(coordinates_player);
+                if (Vu & Coordinates != coordinates_player)
+                {
+                    (double, double) oui = PathFinding(coordinates_player);
+                    Coordinates = oui;
+                }
+
+                Vu = false;
+                if (HaveToHeal(coordinates_player))
+                {
+                    if (_player.Health == 100)
+                    {
+                        Console.WriteLine("You can't get more care !");
+                    }
+                    else
+                    {
+                        Heal(coordinates_player, _player);
+                        Console.WriteLine($"Your health is now: {_player.Health}");
+                    }
+                }
+
+                
+            }
+
+            Health -= 1;
+        }
     }
 }
