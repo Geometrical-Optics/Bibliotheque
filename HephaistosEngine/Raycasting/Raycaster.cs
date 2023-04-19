@@ -4,7 +4,7 @@ using SFML.System;
 using SFML.Window;
 using Map;
 
-namespace Raycaster;
+namespace Raycasting;
 
 public class Raycaster
 {

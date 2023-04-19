@@ -1,6 +1,6 @@
 ﻿using SFML.Graphics;
 
-namespace Raycaster;
+namespace Raycasting;
 
 public class RaycastSprite
 {
