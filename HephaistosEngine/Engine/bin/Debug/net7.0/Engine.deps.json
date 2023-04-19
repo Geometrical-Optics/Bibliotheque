@@ -510,6 +510,14 @@
           "Map.dll": {}
         }
       },
+      "Physix/1.0.0": {
+        "dependencies": {
+          "SFML.Graphics": "2.5.0"
+        },
+        "runtime": {
+          "Physix.dll": {}
+        }
+      },
       "Raycaster/1.0.0": {
         "dependencies": {
           "Map": "1.0.0",
@@ -657,6 +665,11 @@
       "sha512": ""
     },
     "Map/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Physix/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

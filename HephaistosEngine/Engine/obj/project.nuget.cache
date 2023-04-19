@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "7rWE9NtVSHSkZ9Mt/fFO5fMfpYvHXlUWEA8mlD92o0QdnFInsST9mpGqVJ9cGO3GUlPCLhueL93xqumctS9XIA==",
-  "success": false,
+  "dgSpecHash": "zqqrkm/jVWvFmn08e03Wn96U6nvuwqUUT/eTIh6OXUWKm8C06h3Shm/gahpu80pXByS1xOXrppU0e4S7/QOj4g==",
+  "success": true,
   "projectFilePath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Engine\\Engine.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lenny\\.nuget\\packages\\csfml\\2.5.0\\csfml.2.5.0.nupkg.sha512",
@@ -22,15 +22,5 @@
     "C:\\Users\\lenny\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\lenny\\.nuget\\packages\\system.windows.extensions\\8.0.0-preview.3.23174.8\\system.windows.extensions.8.0.0-preview.3.23174.8.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix\\Physix.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix\\Physix.csproj",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  "logs": []
 }

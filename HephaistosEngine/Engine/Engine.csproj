@@ -13,7 +13,6 @@
       <ProjectReference Include="..\IA\IA.csproj" />
       <ProjectReference Include="..\Map\Map.csproj" />
       <ProjectReference Include="..\Physix\Physix.csproj" />
-      <ProjectReference Include="..\Physix\Physix\Physix.csproj" />
       <ProjectReference Include="..\Raycaster\Raycaster.csproj" />
     </ItemGroup>
     
