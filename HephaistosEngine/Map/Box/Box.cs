@@ -1,4 +1,4 @@
-namespace Map;
+﻿namespace Map;
 
 public interface Box
 {
@@ -17,4 +17,7 @@ public interface Box
 
     bool IsColliding((double X, double Y) Coordinates);
     bool Collide((double X, double Y, float Z) Coordinates);
+
+    void Save(string path, BinaryWriter sw);
+    //static void Read(string path, BinaryReader sr);
 }

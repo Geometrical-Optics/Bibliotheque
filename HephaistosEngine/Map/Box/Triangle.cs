@@ -63,4 +63,58 @@ public class Triangle : Box
 
         return false;
     }
+    
+    public void Save(string path, BinaryWriter sw)
+    {
+        sw.Write(3);
+        sw.Write(_Coordinates.X);
+        sw.Write(_Coordinates.Y);
+        sw.Write((double)_posZ);
+        sw.Write(_TextureId);
+        sw.Write(_FloorId);
+        sw.Write(_CeilingId);
+        sw.Write(_TopDownId);
+        sw.Write((double)_Height);
+        
+        sw.Write(_Vertex[0].X);
+        sw.Write(_Vertex[0].Y);
+
+        sw.Write(_Vertex[1].X);
+        sw.Write(_Vertex[1].Y);
+
+    }
+    
+    public static Box Read(string path, BinaryReader sr)
+    {
+        int x;
+        int y;
+        double z;
+        int text;
+        int floor;
+        int ceil;
+        int top;
+        double height;
+        
+        double x1;
+        double x2;
+        double y1;
+        double y2;
+        
+        x = sr.ReadInt32();
+        y = sr.ReadInt32();
+        z = sr.ReadDouble();
+        text = sr.ReadInt32();
+        floor = sr.ReadInt32();
+        ceil = sr.ReadInt32();
+        top = sr.ReadInt32();
+        height = sr.ReadDouble();
+        x1 = sr.ReadDouble();
+        y1 = sr.ReadDouble();
+        
+        x2 = sr.ReadDouble();
+        y2 = sr.ReadDouble();
+
+        return new Triangle((x,y),(float)height,text,floor,ceil,top,(float)z,new []{(x1,y1),(x2,y2)});
+
+    }
 }

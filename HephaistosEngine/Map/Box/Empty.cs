@@ -18,7 +18,7 @@ public class Empty : Box
     public Empty((int X, int Y) Coordinates, float Height, int floor, int ceil)
     {
         _Coordinates = Coordinates;
-        _Height = Height;
+        _Height = 0;
         _TextureId = 0;
         _Vertex = new (double X, double Y)[1]{Coordinates};
         _Size = 0;
@@ -38,5 +38,29 @@ public class Empty : Box
     public bool Collide((double X, double Y, float Z) Coordinates)
     {
         return false;
+    }
+
+    public void Save(string path, BinaryWriter sw)
+    {
+        sw.Write(0);
+        sw.Write(_Coordinates.X);
+        sw.Write(_Coordinates.Y);
+        sw.Write(_FloorId);
+        sw.Write(_CeilingId);
+    }
+
+    public static Box Read(string path, BinaryReader sr)
+    {
+        int x;
+        int y;
+        int floor;
+        int ceil;
+        
+        x = sr.ReadInt32();
+        y = sr.ReadInt32();
+        floor = sr.ReadInt32();
+        ceil = sr.ReadInt32();
+
+        return new Empty((x, y), 0, floor, ceil);
     }
 }

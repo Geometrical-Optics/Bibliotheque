@@ -563,6 +563,9 @@
       "Physix/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "SFML.Graphics": "2.5.0"
+        },
         "compile": {
           "bin/placeholder/Physix.dll": {}
         },
@@ -1059,8 +1062,8 @@
     },
     "Physix/1.0.0": {
       "type": "project",
-      "path": "../Physix/Physix/Physix.csproj",
-      "msbuildProject": "../Physix/Physix/Physix.csproj"
+      "path": "../Physix/Physix.csproj",
+      "msbuildProject": "../Physix/Physix.csproj"
     },
     "Raycaster/1.0.0": {
       "type": "project",
@@ -1071,6 +1074,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "AudioEngine >= 1.0.0",
+      "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix\\Physix.csproj",
       "IA >= 1.0.0",
       "Map >= 1.0.0",
       "Physix >= 1.0.0",
@@ -1078,19 +1082,19 @@
     ]
   },
   "packageFolders": {
-    "/home/kenny/.nuget/packages/": {}
+    "C:\\Users\\lenny\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Engine/Engine.csproj",
+      "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Engine\\Engine.csproj",
       "projectName": "Engine",
-      "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Engine/Engine.csproj",
-      "packagesPath": "/home/kenny/.nuget/packages/",
-      "outputPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Engine/obj/",
+      "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Engine\\Engine.csproj",
+      "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Engine\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/kenny/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -1102,23 +1106,23 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/AudioEngine.csproj": {
-              "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/AudioEngine.csproj"
+            "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj": {
+              "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj"
             },
-            "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/IA/IA.csproj": {
-              "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/IA/IA.csproj"
+            "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj": {
+              "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj"
             },
-            "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Map/Map.csproj": {
-              "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Map/Map.csproj"
+            "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj": {
+              "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj"
             },
-            "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix.csproj": {
-              "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix.csproj"
+            "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {
+              "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj"
             },
-            "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix/Physix.csproj": {
-              "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix/Physix.csproj"
+            "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix\\Physix.csproj": {
+              "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix\\Physix.csproj"
             },
-            "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Raycaster/Raycaster.csproj": {
-              "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Raycaster/Raycaster.csproj"
+            "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj": {
+              "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj"
             }
           }
         }
@@ -1148,8 +1152,19 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/kenny/.dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix\\Physix.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix\\Physix.csproj",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

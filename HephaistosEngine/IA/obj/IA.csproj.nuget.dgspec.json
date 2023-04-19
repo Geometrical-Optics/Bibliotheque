@@ -1,35 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj": {}
+    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj": {
+    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj",
+        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj",
         "projectName": "IA",
-        "projectPath": "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj",
-        "packagesPath": "C:\\Users\\ryand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\IA\\obj\\",
+        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj",
+        "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ryand\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj": {
-                "projectPath": "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj"
+              "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj": {
+                "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj"
               }
             }
           }
@@ -59,28 +57,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj": {
+    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj",
+        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj",
         "projectName": "Map",
-        "projectPath": "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj",
-        "packagesPath": "C:\\Users\\ryand\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\Map\\obj\\",
+        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj",
+        "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ryand\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -120,7 +116,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

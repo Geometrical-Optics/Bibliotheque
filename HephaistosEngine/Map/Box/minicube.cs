@@ -1,8 +1,9 @@
-﻿using System.Net.Mime;
+﻿using SFML.Graphics;
 
-namespace Map;
+namespace Map
+;
 
-public class Cylinder : Box
+public class Rect : Box
 {
     public (int X, int Y) _Coordinates { get; private set; }
     public (double X, double Y)[] _Vertex { get; private set; }
@@ -18,14 +19,13 @@ public class Cylinder : Box
     public bool _ContainsEntity { get; set; }
     public float _posZ { get; private set; }
 
-    public Cylinder((int X, int Y) Coordinates, float Height, int TextureId, int floor, 
-        int ceil, int topid, float pos_Z, float size)
+    public Rect((int X, int Y) Coordinates, float Height, int TextureId, int floor, 
+        int ceil, int topid, float pos_Z, (double X, double Y)[] vertex)
     {
         _Coordinates = Coordinates;
         _Height = Height;
         _TextureId = TextureId;
-        _Vertex = new (double X, double Y)[1]{Coordinates};
-        _Size = size;
+        _Size = 1;
         _FloorId = floor;
         _CeilingId = ceil;
         _TopDownId = topid;
@@ -36,17 +36,41 @@ public class Cylinder : Box
             _IsTransparent = true;
 
         _posZ = pos_Z;
+        _Vertex = vertex;
         _ContainsEntity = false;
+    }
+    
+    public double dist(double x1, double y1, double x2, double y2)
+    {
+        return Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
     }
 
     public bool IsColliding((double X, double Y) Coordinates)
     {
-        if (Math.Sqrt((Coordinates.X-_Coordinates.X-0.5)*(Coordinates.X-_Coordinates.X-0.5) 
-                      + (Coordinates.Y-_Coordinates.Y-0.5)*(Coordinates.Y-_Coordinates.Y-0.5)) < _Size)
+        if (Coordinates.X < _Coordinates.X+0.5f+_Vertex[1].X
+             && Coordinates.X > _Coordinates.X+0.5f-_Vertex[0].X
+             && Coordinates.Y < _Coordinates.Y+0.5f+_Vertex[1].Y
+             && Coordinates.Y > _Coordinates.Y+0.5f-_Vertex[0].Y)
             return true;
-
         return false;
     } 
+    
+    public double GetTextureX(double x, double y)
+    {
+        int X = _Coordinates.X;
+        int Y = _Coordinates.Y;
+        
+        double xx = ((x-X)%1);
+
+        if (((x - X)%1) < _Coordinates.X+0.5f-_Vertex[0].X+0.02 
+            || (((x - X)%1) > _Coordinates.X+0.5f+_Vertex[1].X-0.02))
+        {
+            xx = ((y - Y) % 1);
+        }
+
+        return xx;
+
+    }
     
     public bool Collide((double X, double Y, float Z) Coordinates)
     {
@@ -59,7 +83,7 @@ public class Cylinder : Box
     
     public void Save(string path, BinaryWriter sw)
     {
-        sw.Write(2);
+        sw.Write(4);
         sw.Write(_Coordinates.X);
         sw.Write(_Coordinates.Y);
         sw.Write((double)_posZ);
@@ -68,7 +92,13 @@ public class Cylinder : Box
         sw.Write(_CeilingId);
         sw.Write(_TopDownId);
         sw.Write((double)_Height);
-        sw.Write((double)_Size);
+        
+        sw.Write(_Vertex[0].X);
+        sw.Write(_Vertex[0].Y);
+
+        sw.Write(_Vertex[1].X);
+        sw.Write(_Vertex[1].Y);
+
     }
     
     public static Box Read(string path, BinaryReader sr)
@@ -81,7 +111,11 @@ public class Cylinder : Box
         int ceil;
         int top;
         double height;
-        double size;
+        
+        double x1;
+        double x2;
+        double y1;
+        double y2;
         
         x = sr.ReadInt32();
         y = sr.ReadInt32();
@@ -91,8 +125,13 @@ public class Cylinder : Box
         ceil = sr.ReadInt32();
         top = sr.ReadInt32();
         height = sr.ReadDouble();
-        size = sr.ReadDouble();
+        x1 = sr.ReadDouble();
+        y1 = sr.ReadDouble();
+        
+        x2 = sr.ReadDouble();
+        y2 = sr.ReadDouble();
 
-        return new Cylinder((x, y), (float)height, text, floor, ceil, top, (float)z, (float)size);
+        return new Triangle((x,y),(float)height,text,floor,ceil,top,(float)z,new []{(x1,y1),(x2,y2)});
+
     }
 }

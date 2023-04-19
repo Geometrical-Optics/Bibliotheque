@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/AudioEngine.csproj": {}
+    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj": {}
   },
   "projects": {
-    "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/AudioEngine.csproj": {
+    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/AudioEngine.csproj",
+        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj",
         "projectName": "AudioEngine",
-        "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/AudioEngine.csproj",
-        "packagesPath": "/home/kenny/.nuget/packages/",
-        "outputPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/obj/",
+        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj",
+        "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\AudioEngine\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/kenny/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -63,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/kenny/.dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,36 +1,15 @@
-<<<<<<< HEAD
-﻿using System;
-using System.Collections.Generic;
-using Map;
-
-=======
-﻿
 using System;
 using System.Collections.Generic;
 using Map;
 /*
->>>>>>> Ryan
 namespace IA;
-
 public delegate void Pattern();
-
 public delegate void Upgrade();
-
-<<<<<<< HEAD
-public class IAManager
-=======
 public class Game
->>>>>>> Ryan
 {
     public Box[,] Board;
     public List<NPC> _Monstres;
-
-
-<<<<<<< HEAD
-    public IAManager(Box[,] board)
-=======
     public Game(Box[,] board)
->>>>>>> Ryan
     {
         Board = board;
         _Monstres = new List<NPC>();
@@ -41,19 +20,15 @@ public class Game
         monstre.Id = _Monstres.Count;
         _Monstres.Add(monstre);
     }
-
     public void Remove(int id) => _Monstres.RemoveAll(x => x.Id == id);
-
     public void Show()
     {
         _Monstres.ForEach(monstre => Console.WriteLine(monstre.ToString()));
     }
-
     public void RemoveAll(List<NPC> monstres)
     {
         monstres.Clear();
     }
-
     public void UpdateAll((double X, double Y)coordinates_player)
     {
         foreach (NPC npc in _Monstres)
@@ -78,7 +53,6 @@ public class Game
             }
         }
     }
-
     public virtual void PrintBoard((double X, double Y)coordinates_player)
     {
         foreach (NPC monstre in _Monstres)
@@ -113,9 +87,6 @@ public class Game
             }
         }
     }
-<<<<<<< HEAD
-}
-=======
 }
 */
 namespace IA;
@@ -256,4 +227,3 @@ public class IAManager
         }
     }
 }
->>>>>>> Ryan

@@ -54,4 +54,40 @@ public class Full : Box
 
         return false;
     }
+    
+    public void Save(string path, BinaryWriter sw)
+    {
+        sw.Write(1);
+        sw.Write(_Coordinates.X);
+        sw.Write(_Coordinates.Y);
+        sw.Write((double)_posZ);
+        sw.Write(_TextureId);
+        sw.Write(_FloorId);
+        sw.Write(_CeilingId);
+        sw.Write(_TopDownId);
+        sw.Write((double)_Height);
+    }
+    
+    public static Box Read(string path, BinaryReader sr)
+    {
+        int x;
+        int y;
+        double z;
+        int text;
+        int floor;
+        int ceil;
+        int top;
+        double height;
+        
+        x = sr.ReadInt32();
+        y = sr.ReadInt32();
+        z = sr.ReadDouble();
+        text = sr.ReadInt32();
+        floor = sr.ReadInt32();
+        ceil = sr.ReadInt32();
+        top = sr.ReadInt32();
+        height = sr.ReadDouble();
+
+        return new Full((x, y), (float)height, text, floor, ceil, top, (float)z);
+    }
 }
