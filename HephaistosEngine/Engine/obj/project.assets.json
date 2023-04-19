@@ -573,7 +573,7 @@
           "bin/placeholder/Physix.dll": {}
         }
       },
-      "Raycaster/1.0.0": {
+      "Raycasting/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
@@ -581,10 +581,10 @@
           "SFML.Graphics": "2.5.0"
         },
         "compile": {
-          "bin/placeholder/Raycaster.dll": {}
+          "bin/placeholder/Raycasting.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Raycaster.dll": {}
+          "bin/placeholder/Raycasting.dll": {}
         }
       }
     }
@@ -1065,10 +1065,10 @@
       "path": "../Physix/Physix.csproj",
       "msbuildProject": "../Physix/Physix.csproj"
     },
-    "Raycaster/1.0.0": {
+    "Raycasting/1.0.0": {
       "type": "project",
-      "path": "../Raycaster/Raycaster.csproj",
-      "msbuildProject": "../Raycaster/Raycaster.csproj"
+      "path": "../Raycasting/Raycasting.csproj",
+      "msbuildProject": "../Raycasting/Raycasting.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1077,7 +1077,7 @@
       "IA >= 1.0.0",
       "Map >= 1.0.0",
       "Physix >= 1.0.0",
-      "Raycaster >= 1.0.0"
+      "Raycasting >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1117,8 +1117,8 @@
             "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {
               "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj"
             },
-            "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj": {
-              "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj"
+            "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycasting\\Raycasting.csproj": {
+              "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycasting\\Raycasting.csproj"
             }
           }
         }
