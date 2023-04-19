@@ -11,16 +11,16 @@ public class Fugitif : NPC
     private bool Vu;
     private HealingWeapon Weapon;
     public int Health;
-    private Player _player;
+    //private Player _player;
     
     
-    public Fugitif(int id, (double X, double Y) coordinates, Box[,] board, int speed) : base(id, coordinates, board, speed)
+    public Fugitif(int id, (double X, double Y) coordinates, Carte board, float speed) : base(id, coordinates, board, speed)
     {
         Health = 10;
         Symbol = "F";
         Vu = false;
         Weapon = new HealingWeapon("Stick", 5);
-        _player = new Player();
+        //_player = new Player();
     }
 
     public double Distance((double X, double Y) coor, (double X, double Y) coordinates_player)

@@ -6,8 +6,9 @@ public class PatrouilleurX : NPC
 {
 
     public int Health;
+    public bool avance = true;
     
-    public PatrouilleurX(int id, (double X, double Y) coordinates, Box[,] board, int speed) : base(id, coordinates, board, speed)
+    public PatrouilleurX(int id, (double X, double Y) coordinates,  Carte board, float speed) : base(id, coordinates, board, speed)
     {
         Symbol = "X";
         Health = 30;
@@ -23,6 +24,33 @@ public class PatrouilleurX : NPC
     
     public void Update((double X, double Y) coordinates_player, Player _player)
     {
+        if (avance)
+        {
+            if ((int)Coordinates.X != Board.GetLength(0) &&
+                !Board[(int)(Coordinates.X + 0.1 * Speed), (int)Coordinates.Y]
+                    .IsColliding((Coordinates.X + 0.1 * Speed, Coordinates.Y)))
+            {
+                Coordinates = (Coordinates.X + 0.1 * Speed, Coordinates.Y);
+            }
+            else
+            {
+                avance = false;
+            }
+        }
+        else
+        {
+            if ((int)Coordinates.X != Board.GetLength(0) &&
+                !Board[(int)(Coordinates.X - 0.1 * Speed), (int)Coordinates.Y]
+                    .IsColliding((Coordinates.X - 0.1 * Speed, Coordinates.Y)))
+            {
+                Coordinates = (Coordinates.X - 0.1 * Speed, Coordinates.Y);
+            }
+            else
+            {
+                avance = true;
+            }
+        }
+        /*
         if (_player.IsAlive())
         {
             if (CanAttack(coordinates_player))
@@ -49,5 +77,6 @@ public class PatrouilleurX : NPC
                 Console.WriteLine("You lost !");
             }
         }
+        */
     }
 }

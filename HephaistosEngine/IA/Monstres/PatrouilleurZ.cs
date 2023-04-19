@@ -6,7 +6,7 @@ public class PatrouilleurY : NPC
 {
     public int Health;
     
-    public PatrouilleurY(int id, (double X, double Y) coordinates, Box[,] board, int speed) : base(id, coordinates, board, speed)
+    public PatrouilleurY(int id, (double X, double Y) coordinates, Carte board, float speed) : base(id, coordinates, board, speed)
     {
         Symbol = "Y";
         Health = 30;

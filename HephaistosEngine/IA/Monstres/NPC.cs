@@ -7,11 +7,11 @@ public abstract class NPC
 {
     public string Symbol;
     public int Id;
-    public Box[,] Board;
+    public Carte Board;
     public (double X, double Y) Coordinates;
-    public int Speed;
+    public float Speed;
 
-    public NPC(int id, (double X, double Y) coordinates, Box[,] board, int speed)
+    public NPC(int id, (double X, double Y) coordinates, Carte board, float speed)
     {
         
         Id = id;

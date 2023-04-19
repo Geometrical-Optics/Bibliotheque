@@ -16,7 +16,7 @@ public class AgressifAstar : NPC
     //private Player _player;
     
 
-    public AgressifAstar(int id, (double X, double Y) coordinates, Box[,] board, int speed) : base(id, coordinates, board, speed)
+    public AgressifAstar(int id, (double X, double Y) coordinates, Carte board, float speed) : base(id, coordinates, board, speed)
     {
         Health = 50;
         Symbol = "A";
@@ -180,6 +180,16 @@ public class AgressifAstar : NPC
 
     public void Update((double X, double Y) coordinates_player, Player _player)
     {
+        Vu = CanMove(coordinates_player);
+        if (Vu & Coordinates != coordinates_player)
+        {
+            //(double, double) oui = PathFinding(coordinates_player);
+            (double, double) oui = aux(coordinates_player);
+            Coordinates = oui;
+        }
+
+        Vu = false;
+        /*
         if (_player.IsAlive())
         {
             Vu = CanMove(coordinates_player);
@@ -190,6 +200,7 @@ public class AgressifAstar : NPC
             }
 
             Vu = false;
+            /*
             if (CanAttack(coordinates_player))
             {
                 Attack(coordinates_player, _player);
@@ -200,6 +211,7 @@ public class AgressifAstar : NPC
             {
                 Console.WriteLine("You lost !");
             }
+            */
         }
-    }
+    
 }

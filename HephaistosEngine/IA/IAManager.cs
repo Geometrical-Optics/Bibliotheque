@@ -106,13 +106,13 @@ public delegate void Pattern();
 
 public delegate void Upgrade();
 
-public class Play
+public class IAManager
 {
-    public Box[,] Board;
+    public Carte Board;
     public List<NPC> _Monstres;
     public Player _player;
 
-    public Play(Box[,] board)
+    public IAManager(Carte board)
     {
         Board = board;
         _Monstres = new List<NPC>();
