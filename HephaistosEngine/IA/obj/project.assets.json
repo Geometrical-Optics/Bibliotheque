@@ -426,32 +426,34 @@
     ]
   },
   "packageFolders": {
-    "/home/kenny/.nuget/packages/": {}
+    "C:\\Users\\ryand\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/IA/IA.csproj",
+      "projectUniqueName": "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj",
       "projectName": "IA",
-      "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/IA/IA.csproj",
-      "packagesPath": "/home/kenny/.nuget/packages/",
-      "outputPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/IA/obj/",
+      "projectPath": "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj",
+      "packagesPath": "C:\\Users\\ryand\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\IA\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/kenny/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\ryand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Map/Map.csproj": {
-              "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Map/Map.csproj"
+            "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj": {
+              "projectPath": "C:\\Users\\ryand\\OneDrive\\Bureau\\S2\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj"
             }
           }
         }
@@ -481,7 +483,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/kenny/.dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

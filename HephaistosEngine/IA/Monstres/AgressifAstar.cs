@@ -3,15 +3,26 @@ using System.ComponentModel.Design;
 using System.Text;
 using System;
 using System.Collections.Generic;
+using IA.Item;
 using Map;
 
 namespace IA;
 
 public class AgressifAstar : NPC
 {
-    public AgressifAstar(int id, (double X, double Y) coordinates, Box[,] board) : base(id, coordinates, board)
+    private bool Vu;
+    private AssaultWeapon Weapon;
+    public int Health;
+    //private Player _player;
+    
+
+    public AgressifAstar(int id, (double X, double Y) coordinates, Box[,] board, int speed) : base(id, coordinates, board, speed)
     {
+        Health = 50;
         Symbol = "A";
+        Vu = false;
+        Weapon = new AssaultWeapon("Sword", 50);
+        //_player = new Player();
     }
 
     public double Distance((double X, double Y) coor, (double X, double Y) coordinates_player)
@@ -48,9 +59,9 @@ public class AgressifAstar : NPC
                 Coordinates = aux(coordinates_player);
             }
             else
-                Coordinates = Path.Dequeue();
+                if (Path.Count != 0)
+                    Coordinates = Path.Dequeue();
         }
-
         return Path.Dequeue();
     }
 
@@ -118,29 +129,77 @@ public class AgressifAstar : NPC
 
     public (double X, double Y) aux((double X, double Y) coordinates_player)
     {
-        int decx = 0, decy = 0;
+        double decx = 0, decy = 0;
 
         if (Coordinates == coordinates_player)
             return coordinates_player;
 
         if (coordinates_player.X != Coordinates.X)
-            decx = (coordinates_player.X - Coordinates.X > 0) ? 1 : -1;
+            decx = (coordinates_player.X - Coordinates.X > 0) ? 0.1*Speed : -0.1*Speed;
 
         if (Coordinates.Y != coordinates_player.Y)
-            decy = (coordinates_player.Y - Coordinates.Y > 0) ? 1 : -1;
+            decy = (coordinates_player.Y - Coordinates.Y > 0) ? 0.1*Speed : -0.1*Speed;
 
         if (decx == 0)
             return (Coordinates.X, Coordinates.Y + decy);
         if (decy == 0)
             return (Coordinates.X + decx, Coordinates.Y);
-
+        //Console.WriteLine((Coordinates.X + decx, Coordinates.Y + decy));
+        //Console.WriteLine((Coordinates.X + decx, Coordinates.Y));
+        //Console.WriteLine((Coordinates.X, Coordinates.Y + decy));
+        //Console.WriteLine(min((Coordinates.X + decx, Coordinates.Y + decy), (Coordinates.X + decx, Coordinates.Y),
+        //    (Coordinates.X, Coordinates.Y + decy), coordinates_player));
         return min((Coordinates.X + decx, Coordinates.Y + decy), (Coordinates.X + decx, Coordinates.Y),
             (Coordinates.X, Coordinates.Y + decy), coordinates_player);
     }
 
-    public void Update((double X, double Y) coordinates_player)
+    
+    public bool CanAttack((double X, double Y) coordinates_player)
     {
-        (double, double) oui = PathFinding(coordinates_player);
-        Coordinates = oui;
+        if (Math.Abs(Coordinates.X - coordinates_player.X) < 1 && Math.Abs(Coordinates.Y - coordinates_player.Y) < 1)
+            return true;
+        else
+            return false;
+    }
+
+    public bool CanMove((double X, double Y) coordinates_player)
+    {
+        if (Math.Abs(Coordinates.X - coordinates_player.X) < Board.GetLength(0) && Math.Abs(Coordinates.Y - coordinates_player.Y) < Board.GetLength(1))
+            return true;
+        else
+            return false;
+    }
+
+    public void Attack((double X, double Y) coordinates_player, Player _player)
+    {
+        if (_player.Health - Weapon.Damage > 0)
+            _player.Health -= Weapon.Damage;
+        else
+            _player.Health = 0;
+    }
+
+    public void Update((double X, double Y) coordinates_player, Player _player)
+    {
+        if (_player.IsAlive())
+        {
+            Vu = CanMove(coordinates_player);
+            if (Vu & Coordinates != coordinates_player)
+            {
+                (double, double) oui = PathFinding(coordinates_player);
+                Coordinates = oui;
+            }
+
+            Vu = false;
+            if (CanAttack(coordinates_player))
+            {
+                Attack(coordinates_player, _player);
+                Console.WriteLine($"Your health is now: {_player.Health}");
+            }
+
+            if (_player.IsAlive() == false)
+            {
+                Console.WriteLine("You lost !");
+            }
+        }
     }
 }
