@@ -42,7 +42,7 @@ map[4, 4] = new Empty((4,4), 1, 3, 2);;
 
 
 Image[] materials = new[] { new Texture(
-        "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Raycaster/Ressources/Doom/SUPPORT_5D.png").CopyToImage(),
+        "/../Raycaster/Ressources/Doom/SUPPORT_5D.png").CopyToImage(),
     new Texture(
         "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Raycaster/Ressources/Doom/SLIME_1A.png").CopyToImage(),
     new Texture(
