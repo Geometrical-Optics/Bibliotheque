@@ -1,0 +1,12 @@
+/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/bin/Debug/net7.0/AudioEngine.deps.json
+/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/bin/Debug/net7.0/AudioEngine.dll
+/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/bin/Debug/net7.0/AudioEngine.pdb
+/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/obj/Debug/net7.0/AudioEngine.csproj.AssemblyReference.cache
+/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/obj/Debug/net7.0/AudioEngine.GeneratedMSBuildEditorConfig.editorconfig
+/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/obj/Debug/net7.0/AudioEngine.AssemblyInfoInputs.cache
+/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/obj/Debug/net7.0/AudioEngine.AssemblyInfo.cs
+/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/obj/Debug/net7.0/AudioEngine.csproj.CoreCompileInputs.cache
+/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/obj/Debug/net7.0/AudioEngine.dll
+/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/obj/Debug/net7.0/refint/AudioEngine.dll
+/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/obj/Debug/net7.0/AudioEngine.pdb
+/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/AudioEngine/obj/Debug/net7.0/ref/AudioEngine.dll
