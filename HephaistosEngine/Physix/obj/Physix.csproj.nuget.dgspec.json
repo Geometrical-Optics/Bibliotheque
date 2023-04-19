@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix.csproj": {}
+    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {}
   },
   "projects": {
-    "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix.csproj": {
+    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix.csproj",
+        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj",
         "projectName": "Physix",
-        "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix.csproj",
-        "packagesPath": "/home/kenny/.nuget/packages/",
-        "outputPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/obj/",
+        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj",
+        "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/kenny/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -37,6 +37,12 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "SFML.Graphics": {
+              "target": "Package",
+              "version": "[2.5.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -53,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/kenny/.dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "dWn5m1qxLx7qMuiYTDi5+FuBEzv3LmjpcQ0ub7SOBoFTht+9muQILCjTSZ/F9vDfUSQ3LcxQQ9ANPvu0Uz7Lig==",
+  "dgSpecHash": "JV4iMEvQPDMHLzzo3jycc+Uraoi86i5LuxbDIqJC06qT7LLjcsODhke1+yZT8jiNOTtCgiybqViw26czolX5mw==",
   "success": true,
-  "projectFilePath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/Physix.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lenny\\.nuget\\packages\\csfml\\2.5.0\\csfml.2.5.0.nupkg.sha512",
+    "C:\\Users\\lenny\\.nuget\\packages\\sfml.graphics\\2.5.0\\sfml.graphics.2.5.0.nupkg.sha512",
+    "C:\\Users\\lenny\\.nuget\\packages\\sfml.system\\2.5.0\\sfml.system.2.5.0.nupkg.sha512",
+    "C:\\Users\\lenny\\.nuget\\packages\\sfml.window\\2.5.0\\sfml.window.2.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

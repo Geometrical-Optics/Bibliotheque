@@ -1,26 +1,27 @@
 ﻿using System.Numerics;
-
+using SFML.Graphics;
 namespace Physix;
 
-public class Physix
+public class PhysixManager
 {
     public List<PhysixObject> _objects;
     
-    
+
     public Vector3 _gravity;
 
-    public Physix(Vector3 gravity)
+    public PhysixManager(Vector3 gravity)
     {
         _objects = new List<PhysixObject>();
         _gravity = gravity;
     }
     
     
-    public void Add(PhysixObject obj)
+    public void AddObject(PhysixObject obj)
     {
         obj.Id = _objects.Count;
         _objects.Add(obj);
     }
+    
 
     public void Remove(int id) => _objects.RemoveAll(x => x.Id == id);
 

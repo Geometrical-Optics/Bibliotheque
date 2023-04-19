@@ -10,3 +10,15 @@
 /home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/obj/Debug/net7.0/refint/Physix.dll
 /home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/obj/Debug/net7.0/Physix.pdb
 /home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Physix/obj/Debug/net7.0/ref/Physix.dll
+C:\Users\lenny\Documents\GitHub\Bibliotheque\HephaistosEngine\Physix\bin\Debug\net7.0\Physix.deps.json
+C:\Users\lenny\Documents\GitHub\Bibliotheque\HephaistosEngine\Physix\bin\Debug\net7.0\Physix.dll
+C:\Users\lenny\Documents\GitHub\Bibliotheque\HephaistosEngine\Physix\bin\Debug\net7.0\Physix.pdb
+C:\Users\lenny\Documents\GitHub\Bibliotheque\HephaistosEngine\Physix\obj\Debug\net7.0\Physix.csproj.AssemblyReference.cache
+C:\Users\lenny\Documents\GitHub\Bibliotheque\HephaistosEngine\Physix\obj\Debug\net7.0\Physix.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lenny\Documents\GitHub\Bibliotheque\HephaistosEngine\Physix\obj\Debug\net7.0\Physix.AssemblyInfoInputs.cache
+C:\Users\lenny\Documents\GitHub\Bibliotheque\HephaistosEngine\Physix\obj\Debug\net7.0\Physix.AssemblyInfo.cs
+C:\Users\lenny\Documents\GitHub\Bibliotheque\HephaistosEngine\Physix\obj\Debug\net7.0\Physix.csproj.CoreCompileInputs.cache
+C:\Users\lenny\Documents\GitHub\Bibliotheque\HephaistosEngine\Physix\obj\Debug\net7.0\Physix.dll
+C:\Users\lenny\Documents\GitHub\Bibliotheque\HephaistosEngine\Physix\obj\Debug\net7.0\refint\Physix.dll
+C:\Users\lenny\Documents\GitHub\Bibliotheque\HephaistosEngine\Physix\obj\Debug\net7.0\Physix.pdb
+C:\Users\lenny\Documents\GitHub\Bibliotheque\HephaistosEngine\Physix\obj\Debug\net7.0\ref\Physix.dll

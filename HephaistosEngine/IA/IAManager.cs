@@ -8,13 +8,13 @@ public delegate void Pattern();
 
 public delegate void Upgrade();
 
-public class Game
+public class IAManager
 {
     public Box[,] Board;
     public List<NPC> _Monstres;
 
 
-    public Game(Box[,] board)
+    public IAManager(Box[,] board)
     {
         Board = board;
         _Monstres = new List<NPC>();
