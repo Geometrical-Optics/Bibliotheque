@@ -1,8 +1,8 @@
 ﻿using System.Security.Cryptography;
+using Map;
 using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
-using Map;
 
 namespace Raycasting;
 
@@ -40,47 +40,13 @@ public class Raycaster
         return a;
     }
 
-    private void DrawWall(Carte Map, (double X, double Y, double Z) Position, (double X, double Y) Coord, 
-        int halfres, int Cube_Height, Image[] Textures, byte[] Image, double cos, double cos2,int i, int j)
+    public void DrawVerticalLine(int Start, int i, int End, 
+        ref int column, byte[] Image, Image texture, double yy,
+        uint xx, Color shade)
     {
-        var tmp = Coord;
-        double x = tmp.X;
-        double y = tmp.Y;
-        if (Map[(int)x, (int)y, j] is Empty)
-            return;
-
-        double n = Double.Abs((x - Position.X) / cos);
-        double h = (halfres / ((n * cos2) + 0.000001)); // - ((h * 2) * Map[(int)x, (int)y]._posZ * _Size)
-        Image texture = Textures[Map[(int)x, (int)y, j]._TextureId];
-        var val = (byte)(Math.Min((lum + ((h / halfres) * (1-lum))) * 255, 255));
-
-        var shade = new Color(val, val,val);
-
-        uint xx = (uint)((x % 1) * (texture.Size.X - 1));
-
-        if (x % 1 < 0.02 || x % 1 > 0.98)
-        {
-            xx = (uint)((y % 1) * (texture.Size.X - 1));
-        }
-
-        if (Map[(int)x, (int)y, j] is Rect)
-            xx = (uint)(((Rect)Map[(int)x, (int)y, j]).GetTextureX(x, y)*texture.Size.X);
-        else if (Map[(int)x, (int)y, j] is Cylinder)
-            xx = (uint)((x % 1) * (texture.Size.X - 1));
-
-        double yy = (1 / ((h * 2 + 0.01))) * texture.Size.Y;
         double counter = 0;
-        int size = (int)(halfres + h
-                         - ((h * 2) * Map[(int)x, (int)y, j]._posZ * _Size)
-                         - ((h * 2) * Map[(int)x, (int)y, j]._Height * _Size)
-                         + ((h * 2) * Position.Z * _Size));
-        
-        int Start = (int)(halfres + h
-                          - (int)((h * 2) * Map[(int)x, (int)y, j]._posZ * _Size)
-                          + (int)((h * 2) * Position.Z * _Size));
-        
         for (int w = Start;
-             w >= size
+             w >= End
              && w >= 0;
              w--)
         {
@@ -90,10 +56,14 @@ public class Raycaster
             {
                 Color color = texture.GetPixel(xx, (uint)(texture.Size.Y - counter - 1))*shade;
 
-                Image[(((w * _Width * 4) + i * 4))] = color.R;
-                Image[(((w * _Width * 4) + i * 4)) + 1] = color.G;
-                Image[(((w * _Width * 4) + i * 4)) + 2] = color.B;
-                Image[(((w * _Width * 4) + i * 4)) + 3] = 255;
+                if (color.A != 0)
+                {
+                    column += 1;
+                    Image[(((w * _Width * 4) + i * 4))] = color.R;
+                    Image[(((w * _Width * 4) + i * 4)) + 1] = color.G;
+                    Image[(((w * _Width * 4) + i * 4)) + 2] = color.B;
+                    Image[(((w * _Width * 4) + i * 4)) + 3] = 255;
+                }
             }
             else if (w >= _Height)
             {
@@ -108,11 +78,45 @@ public class Raycaster
             counter = counter % texture.Size.Y;
         }
     }
+
+    private void DrawWall(Carte Map, (double X, double Y, double Z) Position, (double X, double Y) Coord, 
+        int halfres, Image[] Textures, byte[] Image, double cos, double cos2,int i,
+        ref int column, int Vert, Box Case)
+    {
+        var tmp = Coord;
+        double x = tmp.X;
+        double y = tmp.Y;
+        if (Case is Empty)
+            return;
+
+        double n = Double.Abs((x - Position.X) / cos);
+        double h = (halfres / ((n * cos2) + 0.000001)); // - ((h * 2) * Map[(int)x, (int)y]._posZ * _Size)
+        Image texture = Textures[Case._TextureId];
+        var val = (byte)(Math.Min((lum + ((h / halfres) * (1-lum))) * 255, 255));
+
+        var shade = new Color(val, val,val);
+
+        uint xx = Case.GetTextureX((x,y),texture);
+
+        double yy = (1 / ((h * 2 + 0.01))) * texture.Size.Y;
+        //double counter = 0;
+        int End = (int)(halfres + h
+                        - ((h * 2) * Case._posZ * _Size)
+                        - ((h * 2) * Case._Height * _Size)
+                        + ((h * 2) * Position.Z * _Size));
+        
+        int Start = (int)(halfres + h
+                          - (int)((h * 2) * Case._posZ * _Size)
+                          + (int)((h * 2) * Position.Z * _Size));
+
+        DrawVerticalLine(Start+Vert, i, End+Vert,
+            ref column, Image, texture, yy,
+            xx, shade);
+    }
     
     private void DrawSprite(Carte Map, (double X, double Y, double Z) Position, (double X, double Y) Coord, 
-        int halfres, int Cube_Height, Image[] Textures, byte[] Image, double cos, double cos2,int i,
-        RaycastSprite entity,
-        double dist)
+        int halfres, Image[] Textures, byte[] Image, double cos, double cos2,int i,
+        RaycastSprite entity, ref int column, int Vert)
     {
         var tmp = Coord;
         double x = tmp.X;
@@ -120,60 +124,50 @@ public class Raycaster
 
         double n = Double.Abs((x - Position.X) / cos);
         double h = (halfres / ((n * cos2) + 0.000001)); // - ((h * 2) * Map[(int)x, (int)y]._posZ * _Size)
-        Image texture = entity.GetTexture( x, y);
+        Image texture = entity.GetTexture(x, y);
         if (texture != null)
         {
 
-            var val = (byte)(Math.Min((lum + ((h / halfres) * (1-lum))) * 255, 255));
-            var shade = new Color(val, val,val);
+            var val = (byte)(Math.Min((lum + ((h / halfres) * (1 - lum))) * 255, 255));
+            var shade = new Color(val, val, val);
             uint xx = entity.GetTextureX(x, y);
 
             double yy = (1 / ((h * 2 + 0.01))) * texture.Size.Y;
             double counter = 0;
-            int size = (int)(halfres + h
-                             - ((h * 2) * entity.Z * _Size)
-                             - ((h * 2) * entity._Size.Z * _Size)
-                             + ((h * 2) * Position.Z * _Size));
+            int End = (int)(halfres + h
+                            - ((h * 2) * entity.Z * _Size)
+                            - ((h * 2) * entity._Size.Z * _Size)
+                            + ((h * 2) * Position.Z * _Size));
 
             int Start = (int)(halfres + h
                               - (int)((h * 2) * entity.Z * _Size)
                               + (int)((h * 2) * Position.Z * _Size));
-
-            for (int w = Start - 1;
-                 w >= size
-                 && w >= 0;
-                 w--)
-            {
-                if (w < _Height && Image[(((w * _Width * 4) + i * 4)) + 3] == 0)
-                {
-                    Color color = texture.GetPixel(xx, (uint)(texture.Size.Y - counter - 1))*shade;
-
-                    if (color.A != 0)
-                    {
-                        Image[(((w * _Width * 4) + i * 4))] = color.R;
-                        Image[(((w * _Width * 4) + i * 4)) + 1] = color.G;
-                        Image[(((w * _Width * 4) + i * 4)) + 2] = color.B;
-                        Image[(((w * _Width * 4) + i * 4)) + 3] = 255;
-                    }
-                }
-                else if (w >= _Height)
-                {
-                    counter += yy * (w - _Height - 1);
-                    counter %= texture.Size.Y;
-
-                    w = (int)_Height - 1;
-                }
-
-
-                counter += yy;
-                counter = counter % texture.Size.Y;
-            }
+            
+            DrawVerticalLine(Start+Vert, i, End+Vert,
+                ref column, Image, texture, yy,
+                xx, shade);
+            
         }
     }
+    
+    
+    
+    
+    
+    
 
-    private void DrawColumn(Carte Map, (double X, double Y, double Z) Position, int Cube_Height, double Angle, 
-        Image[] Textures, byte[] Image, int i, int halfres, double mod, double FOV,
-        RaycastSprite[] Entities, int step, (int stepnumb, int mult)[] scale, int renderdist)
+    private void DrawColumn(Carte Map, 
+        (double X, double Y, double Z) Position, 
+        double Angle, 
+        int Vert,
+        Image[] Textures, 
+        byte[] Image, 
+        int i, 
+        int halfres, 
+        double mod, 
+        double FOV,
+        RaycastSprite[] Entities, 
+        DrawDistance Dist)
     {
         double tempo = (Math.PI * (((i / mod) - (FOV/2))/180)); // double cos = Math.Cos(rot_i);
         double rot_i = Angle + tempo;// + Math.Atan2(_Width/2 - (i - 0.5), dist); //+ tempo;
@@ -190,18 +184,21 @@ public class Raycaster
 
         double distance = 0;
         
-        Stack<(double x, double y)> drawlist = new Stack<(double x, double y)>();
+        Stack<Box> drawlist = new Stack<Box>();
         Stack<(double x, double y)> spritelist = new Stack<(double x, double y)>();
+        int column = 0;
 
-        while ( distance < renderdist && x >= 0 && x < Map.GetLength(0)
+        while ( distance < Dist._MaxStep 
+                && x >= 0 && x < Map.GetLength(0)
                 && y >= 0 && y < Map.GetLength(1)
-                && (Map[(int)x, (int)y].IsColliding((x, y)) == false ||
-                    Map[(int)x, (int)y]._IsTransparent))
+                && (Map[(int)x, (int)y,0].IsColliding((x, y)) == false ||
+                    Map[(int)x, (int)y,0]._IsTransparent)
+                && column < _Height-1)
         {
 
-            if (distance % step == 0)
+            if (distance % Dist._Step == 0)
             {
-                foreach (var etape in scale)
+                foreach (var etape in Dist._Scale)
                 {
                     if (distance >= etape.stepnumb)
                     {
@@ -211,67 +208,37 @@ public class Raycaster
                 }
             }
 
-            bool drawed = false;
-            
-            if (drawlist.Count == 0
-                && Map[(int)x, (int)y].IsColliding((x, y))
-                && Map[(int)x, (int)y].IsColliding((Position.X, Position.Y)) == false
-                && (Map[(int)x, (int)y]._IsTransparent || Position.Z > 0))
+            Box[] CurrentWall = Map.GetCollision(x, y);
+
+            foreach (Box Case in CurrentWall)
             {
-                drawlist.Push((x, y));
-                for (int j = 0; j < Map._Depth; j++)
+
+                bool drawed = false;
+
+                // Wall
+
+                if (drawlist.Count == 0
+                    && (Case._IsTransparent || Position.Z > 0))
                 {
+                    drawlist.Push(Case);
                     DrawWall(Map, Position, (x, y),
-                        halfres, Cube_Height, Textures, Image, cos, cos2, i, j);
-                    drawed = true;
+                        halfres, Textures, Image, cos, cos2, i, ref column, Vert, Case);
                 }
-            }
-            else if (Map[(int)x, (int)y].IsColliding((x, y))
-                     && Map[(int)x, (int)y].IsColliding((Position.X, Position.Y)) == false
-                     && ((int)drawlist.Peek().x != (int)x
-                         || (int)drawlist.Peek().y != (int)y)
-                     && (Map[(int)x, (int)y]._IsTransparent || Position.Z > 0))
-            {
-                drawlist.Push((x, y));
-                for (int j = 0; j < Map._Depth; j++)
+                else if (drawlist.Contains(Case) == false
+                         && (Case._IsTransparent || Position.Z > 0))
                 {
+                    drawlist.Push(Case);
                     DrawWall(Map, Position, (x, y),
-                        halfres, Cube_Height, Textures, Image, cos, cos2, i, j);
-                }
-            }
-
-            else if (spritelist.Count != Entities.Length) 
-            {
-
-                foreach (var entity in Entities)
-                {
-                    if (spritelist.Contains((entity.X, entity.Y)) == false)
-                    {
-                        var dist = 0;
-                        if (entity.GetCollision(x,y)) 
-                        {
-                            DrawSprite(Map, Position, (x, y),
-                                halfres, Cube_Height, Textures, Image, cos, cos2, i, entity, dist);
-                            
-                            spritelist.Push((entity.X, entity.Y));
-
-                        }
-                    }
+                        halfres, Textures, Image, cos, cos2, i, ref column, Vert, Case);
                 }
                 
-            }
-
-            for (int j = 0; j < Map._Depth; j++)
-            {
-                if (Map[(int)x, (int)y,j].IsColliding((x, y)))
+                // Top and Down
+                
+                if (Case is Empty == false && Case._TopDownId != 0)
                 {
-                    if (Map[(int)x, (int)y, j] is Empty)
-                        continue;
-
                     double n = Double.Abs((x - Position.X) / cos);
                     double h2 = (halfres / ((n * cos2) + 0.000001));
-                    Image texture = Textures[Map[(int)x, (int)y, j]._TopDownId];
-                    //Console.Write(Map[(int)x, (int)y,j]._TopDownId);
+                    Image texture = Textures[Case._TopDownId];
                     var val = (byte)(Math.Min((lum + ((h2 / halfres) * (1-lum))) * 255, 255));
 
                     var shade = new Color(val, val,val);
@@ -280,18 +247,19 @@ public class Raycaster
                     uint yy = (uint)((y % 1) * (texture.Size.Y - 1));
                     int w = (int)(halfres
                                   + h2
-                                  - ((h2 * 2) * Map[(int)x, (int)y, j]._Height * _Size)
-                                  - ((h2 * 2) * Map[(int)x, (int)y, j]._posZ * _Size)
-                                  + ((h2 * 2) * Position.Z * _Size));
+                                  - ((h2 * 2) * Case._Height * _Size)
+                                  - ((h2 * 2) * Case._posZ * _Size)
+                                  + ((h2 * 2) * Position.Z * _Size))+Vert;
 
-                    if (Map[(int)x, (int)y, j]._posZ > Position.Z)
+                    if (Case._posZ > Position.Z)
                         w = (int)(halfres
                                   + h2
-                                  - (h2 * 2 * Map[(int)x, (int)y, j]._posZ * _Size)
-                                  + (h2 * 2 * Position.Z * _Size));
+                                  - (h2 * 2 * Case._posZ * _Size)
+                                  + (h2 * 2 * Position.Z * _Size))+Vert;
 
                     if (w < _Height && w >= 0 && Image[(((w * _Width * 4) + i * 4)) + 3] == 0)
                     {
+                        column += 1;
                         Color color = texture.GetPixel(xx, (uint)yy)*shade;
 
                         Image[(((w * _Width * 4) + i * 4))] = color.R;
@@ -301,22 +269,49 @@ public class Raycaster
                     }
                 }
             }
+            
+            // Entities
 
-            if (Map[(int)x, (int)y]._FloorId != 0)
+            if (Map[(int)x, (int)y, 0]._ContainsEntity
+                && spritelist.Count != Entities.Length)
+            {
+
+                foreach (var entity in Entities)
+                {
+                    if (spritelist.Contains((entity.X, entity.Y)) == false)
+                    {
+                        var dist = 0;
+                        if (entity.GetCollision(x, y))
+                        {
+                            DrawSprite(Map, Position, (x, y),
+                                halfres, Textures, Image, cos, cos2, i, entity, ref column, Vert);
+
+                            spritelist.Push((entity.X, entity.Y));
+
+                        }
+                    }
+                }
+
+            }
+            
+            // Floor
+            
+            if (Map[(int)x, (int)y,0]._FloorId != 0)
             {
                 double n = Double.Abs((x - Position.X) / cos);
                 double h2 = (halfres / ((n * cos2) + 0.000001));
-                Image texture = Textures[Map[(int)x, (int)y]._FloorId];
+                Image texture = Textures[Map[(int)x, (int)y,0]._FloorId];
 
                 uint xx = (uint)((x % 1) * (texture.Size.X - 1));
                 uint yy = (uint)((y % 1) * (texture.Size.Y - 1));
-                int w = (int)(halfres + h2 + ((h2 * 2)*Position.Z*_Size));
+                int w = (int)(halfres + h2 + ((h2 * 2)*Position.Z*_Size))+Vert;
                 var val = (byte)(Math.Min((lum + ((h2 / halfres) * (1-lum))) * 255, 255));
 
                 var shade = new Color(val, val,val);
                 
                 if ( w < _Height && w >= 0 && Image[(((w * _Width * 4) + i * 4)) + 3] == 0)
                 {
+                    column += 1;
                     Color color = texture.GetPixel(xx, (uint)yy)*shade;
                         
                     Image[(((w * _Width * 4) + i * 4))] = color.R;
@@ -324,17 +319,18 @@ public class Raycaster
                     Image[(((w * _Width * 4) + i * 4)) + 2] = color.B;
                     Image[(((w * _Width * 4) + i * 4)) + 3] = 255;
                 }
-                if (Map[(int)x, (int)y]._CeilingId != 0)
+                if (Map[(int)x, (int)y,0]._CeilingId != 0)
                 {
-                    texture = Textures[Map[(int)x, (int)y]._CeilingId];
+                    texture = Textures[Map[(int)x, (int)y,0]._CeilingId];
                     w = (int)(halfres
                               + h2
                               - ((h2 * 2) * _Size)
                               + ((h2 * 2)*Position.Z*_Size)
-                        );
+                        )+Vert;
                     
                     if ( w < _Height && w >= 0 && Image[(((w * _Width * 4) + i * 4)) + 3] == 0)
                     {
+                        column += 1;
                         Color color = texture.GetPixel(xx, (uint)yy)*shade;
                         
                         Image[(((w * _Width * 4) + i * 4))] = color.R;
@@ -345,11 +341,11 @@ public class Raycaster
                 }
 
             }
-            else if (Map[(int)x, (int)y]._CeilingId != 0 && Map[(int)x, (int)y]._Height != 1)
+            else if (Map[(int)x, (int)y,0]._CeilingId != 0 && Map[(int)x, (int)y,0]._Height != 1)
             {
                 double n = Double.Abs((x - Position.X) / cos);
                 double h2 = (halfres / ((n * cos2) + 0.000001));
-                Image texture = Textures[Map[(int)x, (int)y]._CeilingId];
+                Image texture = Textures[Map[(int)x, (int)y,0]._CeilingId];
                 var val = (byte)(Math.Min((lum + ((h2 / halfres) * (1-lum))) * 255, 255));
 
                 var shade = new Color(val, val,val);
@@ -360,10 +356,11 @@ public class Raycaster
                               + h2
                               - ((h2 * 2) * _Size)
                               + ((h2 * 2)*Position.Z*_Size)
-                    );
+                    )+Vert;
                 
                 if ( w < _Height && w >= 0 && Image[(((w * _Width * 4) + i * 4)) + 3] == 0)
                 {
+                    column += 1;
                     Color color = texture.GetPixel(xx, (uint)yy)*shade;
                         
                     Image[(((w * _Width * 4) + i * 4))] = color.R;
@@ -379,41 +376,47 @@ public class Raycaster
         }
             
 
-        if (x >= 0 && x < Map.GetLength(0)
-                   && y >= 0 && y < Map.GetLength(1)
-                   && Map[(int)x, (int)y].IsColliding((x, y)))
+        if (x >= 0 && x < Map.GetLength(0) && y >= 0 && y < Map.GetLength(1) && column < _Height-1)
         {
-            for (int j = 0; j < Map._Depth; j++)
+            foreach (Box Case in Map.GetCollision(x, y))
             {
                 DrawWall(Map, Position, (x, y),
-                    halfres, Cube_Height, Textures, Image, cos, cos2, i,j);
+                    halfres, Textures, Image, cos, cos2, i, ref column, Vert, Case);
             }
         }
     }
-    public void Draw(Carte Map, (double X, double Y, double Z) Position, int Cube_Height, double rot, 
-        Image[] Textures, byte[] Image, 
-        RaycastSprite[] Entities, 
-        RenderWindow _window, int step, (int stepnumb, int mult)[] scale, int renderdist)
+    
+    
+    
+    
+    
+    
+    public void Draw(Carte Map, 
+        Image[] Textures, 
+        byte[] Image, 
+        RaycastSprite[] Entities,
+        Camera Cam,
+        RenderWindow _window)
     {
         
         double FOV = 60;
         int halfres = ((int)_Height) / 2;
         double mod = _Height / FOV;
-        double FOVSTEP = FOV / (_Width); //  {(3072,64),(2560,32),(0,2)}
+        double FOVSTEP = FOV / (_Width);
 
         Parallel.For(0, _Width, i =>
         {
-            DrawColumn(Map, Position, Cube_Height, rot,
-                Textures, Image, (int)i, halfres, mod, FOV, Entities, step, scale, renderdist);
+            DrawColumn(Map, Cam._Position, Cam._Angle, Cam._VerticalPos,
+                Textures, Image, (int)i, halfres, mod, FOV, Entities, Cam._DrawDistance);
         });
         
         Image image2 = new Image((uint)_Width, (uint)_Height, Image);
 
         Texture texture = new Texture(image2);
         Sprite sprite = new Sprite(texture);
+        /*sprite.Scale = new Vector2f((float)_window.Size.X/(float)_Width,
+            (float)_window.Size.Y/(float)_Height);*/
         sprite.Draw(_window,RenderStates.Default);
         
     }
-    
-    
 }

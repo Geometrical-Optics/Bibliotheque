@@ -11,7 +11,7 @@ public class RaycastSprite
     public (float X, float Y, float Z) _Size { get; set; }
     public Image _Texture { get; }  
     public Image[] _TextureList { get; set; }  
-    public (float X, float Y, float Z) _TexturePosition { get; set; }
+    public (float X, float Y) _TexturePosition { get; set; }
 
     public double _Angle { get; set; } 
 
@@ -27,7 +27,7 @@ public class RaycastSprite
 
     public RaycastSprite((float X, float Y, float Z) Position, (float X, float Y, float Z) Size, 
         Image Texture,
-        (float X, float Y, float Z) TexturePosition)
+        (float X, float Y) TexturePosition)
     {
         X = Position.X;
         Y = Position.Y;
@@ -85,15 +85,15 @@ public class RaycastSprite
             
         }
         
-        if (((X + (_Size.X/2) - x + _TexturePosition.X)%1)< 0.02)
+        if (((X + (_Size.X/2) - x)%1)< 0.02)
         {
             return _TextureList[0];
         }
-        else if (((X + (_Size.X/2) - x + _TexturePosition.X)%1) > _Size.X-0.02)
+        else if (((X + (_Size.X/2) - x)%1) > _Size.X-0.02)
         {
             return _TextureList[2];
         }
-        else if (((Y + (_Size.Y/2) - y + _TexturePosition.X)%1) > _Size.Y-0.02)
+        else if (((Y + (_Size.Y/2) - y)%1) > _Size.Y-0.02)
         {
             return _TextureList[1];
 
@@ -102,6 +102,15 @@ public class RaycastSprite
         return _TextureList[3];
 
 
+    }
+
+    public void FaceTo(double x, double y)
+    {
+        var dx = x - X;
+        var dy = y - Y;
+        var angle = Math.Atan2(dy,dx);
+
+        _Angle = angle;
     }
     
     public uint GetTextureX(double x, double y)
@@ -114,20 +123,24 @@ public class RaycastSprite
             var angle = Math.Atan2(dy,dx)-_Angle;
             var dist = Raycaster.Dist((0, 0), (dx, dy));
 
+            /*if (dx < 0 && dy < 0)
+                angle -= Math.PI;
+            else if (dx < 0)
+                angle += Math.PI;*/
+
             x = X + Math.Cos(angle) * dist;
             y = Y + Math.Sin(angle) * dist;
             
         }
         
-        uint xx = (uint)((((X + (_Size.X/2) - x + _TexturePosition.X) / _Size.X)%1) * (_Texture.Size.X - 1));
-
-        if (((X - (_Size.X/2) - x + _TexturePosition.X)%1)< 0.02 
-            || ((X + (_Size.X/2) - x + _TexturePosition.X)%1) > _Size.X-0.02)
+        uint xx = (uint)((((X + (_Size.X/2) - x + ((_Size.X)*_TexturePosition.X)) / _Size.X)%1) * (_Texture.Size.X - 1));
+        
+        if (((X + (_Size.X/2) - x)%1)< 0.02
+            || ((X + (_Size.X/2) - x)%1) > _Size.X-0.02)
         {
-            xx = (uint)((((Y + (_Size.Y / 2) - y + _TexturePosition.X) / (_Size.Y)) % 1) * (_Texture.Size.X - 1));
-            if (_Angle == 0)
-                xx = (uint)((((Y + (_Size.Y / 2) - y + _TexturePosition.X) / (_Size.Y*3)) % 1) * (_Texture.Size.X - 1));
+            xx = (uint)((((Y + (_Size.Y / 2) - y + ((_Size.Y)*_TexturePosition.Y)) / (_Size.Y)) % 1) * (_Texture.Size.X - 1));
         }
+        
 
         return xx;
 
