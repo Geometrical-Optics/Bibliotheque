@@ -23,9 +23,9 @@ public class Demo
     
 
     private double angle = 0;
-    private double x = 1.5;
+    private double x = 3.5;
     private double y = 1.5;
-    private float z = 0;
+    private float z = 0.51f;
     
     private Image[] _textures;
 
@@ -55,7 +55,7 @@ public class Demo
         double fps = 0;
         
         
-        var camtest = new Camera(DrawDistance.DrawDistance_320);
+        var camtest = new Camera(DrawDistance.DrawDistance_320_NoVerticalAngle);
         
         
         //var music = new Music(
@@ -142,6 +142,12 @@ public class Demo
                 camtest._VerticalPos += 10;
             if (Keyboard.IsKeyPressed(Keyboard.Key.S))
                 camtest._VerticalPos -= 10;
+            
+            if (camtest._VerticalPos > 30 || camtest._VerticalPos < -30)
+                camtest._DrawDistance = DrawDistance.DrawDistance_320;
+            else 
+                camtest._DrawDistance = DrawDistance.DrawDistance_320_NoVerticalAngle;
+                
             
             _window.Clear();
             

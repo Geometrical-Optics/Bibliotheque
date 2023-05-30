@@ -9,9 +9,9 @@ public class Rect : Box
 
     public (double X, double Y)[] _Vertex { get; private set; }
     public float _Height { get; private set; }
-    public int _TextureId { get; private set; }
+    public int _TextureId { get; set; }
     public float _Size { get; private set; }
-    public int _FloorId { get; private set; }
+    public int _FloorId { get; set; }
     public int _CeilingId { get; private set; }
     
     public int _TopDownId { get; private set; }
@@ -70,7 +70,7 @@ public class Rect : Box
         if (((x - X)%1) < _Coordinates.X+0.5f-_Vertex[0].X+0.02 
             || (((x - X)%1) > _Coordinates.X+0.5f+_Vertex[1].X-0.02))
         {
-            xx = ((y - Y + _TexturePos.Y) % 1);
+            xx = ((y - Y + _TexturePos.X) % 1);
         }
 
         return xx;

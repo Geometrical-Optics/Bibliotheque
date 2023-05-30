@@ -8,8 +8,8 @@ public interface Box
     (float X, float Y) _TexturePos { get; set; }
     (double X, double Y)[] _Vertex { get; }
     float _Height { get; }
-    int _TextureId { get; }
-    int _FloorId { get; }
+    int _TextureId { get; set; }
+    int _FloorId { get; set; }
     int _CeilingId { get; }
     int _TopDownId { get; }
     float _Size { get; }

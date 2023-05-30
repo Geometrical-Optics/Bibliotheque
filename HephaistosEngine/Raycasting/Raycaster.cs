@@ -29,9 +29,9 @@ public class Raycaster
 
     private void DrawVerticalLine(int Start, int i, int End, 
         ref int column, byte[] Image, Image texture, double yy,
-        uint xx, Color shade)
+        uint xx, Color shade, double startposText = 0) // _TexturePos
     {
-        double counter = 0;
+        double counter = startposText;
         for (int w = Start;
              w >= End
              && w >= 0;
@@ -54,10 +54,10 @@ public class Raycaster
             }
             else if (w >= _Height)
             {
-                counter += yy*(w-_Height-1);
+                counter += yy*(w-_Height);
                 counter %= texture.Size.Y;
                 
-                w = (int)_Height-1;
+                w = (int)_Height;
             }
 
 
@@ -98,7 +98,7 @@ public class Raycaster
 
         DrawVerticalLine(Start+Vert, i, End+Vert,
             ref column, Image, texture, yy,
-            xx, shade);
+            xx, shade, texture.Size.Y*Case._TexturePos.Y);
     }
     
     private void DrawSprite(Carte Map, (double X, double Y, double Z) Position, (double X, double Y) Coord, 
@@ -132,7 +132,7 @@ public class Raycaster
             
             DrawVerticalLine(Start+Vert, i, End+Vert,
                 ref column, Image, texture, yy,
-                xx, shade);
+                xx, shade, texture.Size.Y*entity._TexturePosition.Y);
             
         }
     }
@@ -166,7 +166,7 @@ public class Raycaster
         double distance = 0;
         
         Stack<Box> drawlist = new Stack<Box>();
-        Stack<(double x, double y)> spritelist = new Stack<(double x, double y)>();
+        Stack<int> spritelist = new Stack<int>();
         int column = 0;
 
         while ( distance < Dist._MaxStep 
@@ -253,9 +253,9 @@ public class Raycaster
             }
             
             // Entities
-
-            if (Map[(int)x, (int)y, 0]._ContainsEntity)
-                //&& spritelist.Count != Entities.Length)
+           
+            if (Map[(int)x, (int)y, 0]._ContainsEntity
+                && spritelist.Count != Entities.Length )
             {
 
                 foreach (var entity in Entities)
@@ -263,15 +263,15 @@ public class Raycaster
                     if (entity.GetCollision(x, y))
                     {
                         //var dist = 0;
-                        if (spritelist.Contains((entity.X, entity.Y)) == false)
+                        if (spritelist.Contains(entity._Identifier) == false)
                         {
                             DrawSprite(Map, Position, (x, y),
                                 halfres, Textures, Image, cos, cos2, i, entity, ref column, Vert);
 
-                            spritelist.Push((entity.X, entity.Y));
+                            spritelist.Push(entity._Identifier);
 
                         }
-                        else //if (entity._TextureList[4] != 0)
+                        else if (entity._TextureList[4] != 0)
                         {
                             double n = Double.Abs((x - Position.X) / cos);
                             double h2 = (halfres / ((n * cos2) + 0.000001));

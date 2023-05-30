@@ -9,9 +9,9 @@ public class Triangle : Box
 
     public (double X, double Y)[] _Vertex { get; private set; }
     public float _Height { get; private set; }
-    public int _TextureId { get; private set; }
+    public int _TextureId { get; set; }
     public float _Size { get; private set; }
-    public int _FloorId { get; private set; }
+    public int _FloorId { get; set; }
     public int _CeilingId { get; private set; }
     
     public int _TopDownId { get; private set; }
@@ -147,7 +147,7 @@ public class Triangle : Box
 
         if (Coordinates.X % 1 < 0.02 || Coordinates.X % 1 > 0.98)
         {
-            xx = (uint)(((Coordinates.Y+_TexturePos.Y) % 1) * (Texture.Size.X - 1));
+            xx = (uint)(((Coordinates.Y+_TexturePos.X) % 1) * (Texture.Size.X - 1));
         }
 
         return xx;

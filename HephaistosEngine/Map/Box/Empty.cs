@@ -9,9 +9,9 @@ public class Empty : Box
 
     public (double X, double Y)[] _Vertex { get; private set; }
     public float _Height { get; private set; }
-    public int _TextureId { get; private set; }
+    public int _TextureId { get; set; }
     public float _Size { get; private set; }
-    public int _FloorId { get; private set; }
+    public int _FloorId { get; set; }
     public int _CeilingId { get; private set; }
     public int _TopDownId { get; private set; }
     public bool _IsTransparent { get; private set; }
