@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "ldWehnQ1nnJ4twL9Um0RMBRkwvgaUebulfX+NyahV156KZYrg/JBhegpn51dEy4Twy1xthe64q97trBzmO9Ecg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\yvanf\\OneDrive\\Documents\\Raycaster\\Raycaster\\Raycaster\\Raycaster.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yvanf\\.nuget\\packages\\csfml\\2.5.0\\csfml.2.5.0.nupkg.sha512",
+    "C:\\Users\\yvanf\\.nuget\\packages\\sfml.audio\\2.5.0\\sfml.audio.2.5.0.nupkg.sha512",
+    "C:\\Users\\yvanf\\.nuget\\packages\\sfml.graphics\\2.5.0\\sfml.graphics.2.5.0.nupkg.sha512",
+    "C:\\Users\\yvanf\\.nuget\\packages\\sfml.net\\2.5.0\\sfml.net.2.5.0.nupkg.sha512",
+    "C:\\Users\\yvanf\\.nuget\\packages\\sfml.system\\2.5.0\\sfml.system.2.5.0.nupkg.sha512",
+    "C:\\Users\\yvanf\\.nuget\\packages\\sfml.window\\2.5.0\\sfml.window.2.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
