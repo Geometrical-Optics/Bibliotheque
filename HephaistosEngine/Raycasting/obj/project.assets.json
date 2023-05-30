@@ -427,32 +427,34 @@
     ]
   },
   "packageFolders": {
-    "/home/kenny/.nuget/packages/": {}
+    "C:\\Users\\lenny\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Raycasting/Raycasting.csproj",
+      "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycasting\\Raycasting.csproj",
       "projectName": "Raycasting",
-      "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Raycasting/Raycasting.csproj",
-      "packagesPath": "/home/kenny/.nuget/packages/",
-      "outputPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Raycasting/obj/",
+      "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycasting\\Raycasting.csproj",
+      "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycasting\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/kenny/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Map/Map.csproj": {
-              "projectPath": "/home/kenny/Documents/ProjetS/Bibliotheque/HephaistosEngine/Map/Map.csproj"
+            "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj": {
+              "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj"
             }
           }
         }
@@ -488,7 +490,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/kenny/.dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

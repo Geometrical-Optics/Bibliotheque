@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {}
+    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {
+    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj",
-        "projectName": "Physix",
-        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj",
+        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj",
+        "projectName": "Raycaster",
+        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj",
         "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\obj\\",
+        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,7 +40,7 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "SFML.Graphics": {
+            "SFML.Net": {
               "target": "Package",
               "version": "[2.5.0, )"
             }

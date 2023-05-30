@@ -5,17 +5,17 @@ namespace IA;
 public class PatrouilleurY : NPC
 {
     public int Health;
-    
-    public PatrouilleurY(int id, (double X, double Y) coordinates, Carte board, float speed) : base(id, coordinates, board, speed)
+    public bool avance = true;
+    public PatrouilleurY(int health, (double X, double Y) coordinates, Carte board, float speed) : base(health, coordinates, board, speed)
     {
         Symbol = "Y";
-        Health = 30;
+        Health = health;
     }
 
     
     public bool CanAttack((double X, double Y) coordinates_player)
     {
-        if (Math.Abs(Coordinates.X - coordinates_player.X) < 1 || Math.Abs(Coordinates.Y - coordinates_player.Y) < 1)
+        if (Math.Abs(Coordinates.X - coordinates_player.X) < 1)
             return true;
         else
             return false;
@@ -23,32 +23,80 @@ public class PatrouilleurY : NPC
     
     public void Update((double X, double Y) coordinates_player, Player _player)
     {
-        if (_player.IsAlive())
+        if (avance)
         {
+            
             if (CanAttack(coordinates_player))
             {
                 _player.Health -= 10;
-                Console.WriteLine($"Your health is now: {_player.Health}");
+            }
+            
+            if ((int)Coordinates.Y != Board.GetLength(1) && !Board[(int)Coordinates.X, (int)(Coordinates.Y + 0.1*Speed)]
+                    .IsColliding((Coordinates.X, Coordinates.Y + 0.1*Speed)))
+            {
+                Coordinates = (Coordinates.X, Coordinates.Y + 0.1*Speed);
             }
             else
             {
-                if ((int)Coordinates.Y != Board.GetLength(1) && !Board[(int)Coordinates.X, (int)(Coordinates.Y + 0.1*Speed)]
-                        .IsColliding((Coordinates.X, Coordinates.Y + 0.1*Speed)))
-                {
-                    Coordinates = (Coordinates.X, Coordinates.Y + 0.1*Speed);
-                }
-                else
-                {
-                    if ((int)Coordinates.Y != 0 && !Board[(int)Coordinates.X, (int)(Coordinates.Y - 0.1*Speed)]
-                            .IsColliding((Coordinates.X, Coordinates.Y - 0.1*Speed)))
-                    {
-                        Coordinates = (Coordinates.X, Coordinates.Y - 0.1*Speed);
-                    }
-                }
+                avance = false;
             }
-            if (_player.IsAlive() == false)
+        }
+        else
+        {
+            
+            if (CanAttack(coordinates_player))
             {
-                Console.WriteLine("You lost !");
+                _player.Health -= 10;
+            }
+            
+            if ((int)Coordinates.Y != 0 && !Board[(int)Coordinates.X, (int)(Coordinates.Y - 0.1*Speed)]
+                    .IsColliding((Coordinates.X, Coordinates.Y - 0.1*Speed)))
+            {
+                Coordinates = (Coordinates.X, Coordinates.Y - 0.1*Speed);
+            }
+            else
+            {
+                avance = true;
+            }
+        }
+    }
+    
+    public void UpdateNPC(NPC npc)
+    {
+        if (avance)
+        {
+            
+            if (CanAttack(npc.Coordinates))
+            {
+                npc.Health -= 10;
+            }
+            
+            if ((int)Coordinates.Y != Board.GetLength(1) && !Board[(int)Coordinates.X, (int)(Coordinates.Y + 0.1*Speed)]
+                    .IsColliding((Coordinates.X, Coordinates.Y + 0.1*Speed)))
+            {
+                Coordinates = (Coordinates.X, Coordinates.Y + 0.1*Speed);
+            }
+            else
+            {
+                avance = false;
+            }
+        }
+        else
+        {
+            
+            if (CanAttack(npc.Coordinates))
+            {
+                npc.Health -= 10;
+            }
+            
+            if ((int)Coordinates.Y != 0 && !Board[(int)Coordinates.X, (int)(Coordinates.Y - 0.1*Speed)]
+                    .IsColliding((Coordinates.X, Coordinates.Y - 0.1*Speed)))
+            {
+                Coordinates = (Coordinates.X, Coordinates.Y - 0.1*Speed);
+            }
+            else
+            {
+                avance = true;
             }
         }
     }

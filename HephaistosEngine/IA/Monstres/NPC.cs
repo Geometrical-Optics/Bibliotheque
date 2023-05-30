@@ -10,11 +10,11 @@ public abstract class NPC
     public Carte Board;
     public (double X, double Y) Coordinates;
     public float Speed;
+    public int Health;
 
-    public NPC(int id, (double X, double Y) coordinates, Carte board, float speed)
+    public NPC(int health, (double X, double Y) coordinates, Carte board, float speed)
     {
-        
-        Id = id;
+        Health = health;
         Coordinates = coordinates;
         Board = board;
         Speed = speed;

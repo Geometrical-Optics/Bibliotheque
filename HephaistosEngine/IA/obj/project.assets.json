@@ -239,6 +239,25 @@
           }
         }
       },
+      "SFML.Audio/2.5.0": {
+        "type": "package",
+        "dependencies": {
+          "CSFML": "2.5.0",
+          "SFML.Graphics": "2.5.0",
+          "SFML.System": "2.5.0",
+          "SFML.Window": "2.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/SFML.Audio.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/SFML.Audio.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "SFML.Graphics/2.5.0": {
         "type": "package",
         "dependencies": {
@@ -255,6 +274,15 @@
           "lib/netstandard2.0/SFML.Graphics.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "SFML.Net/2.5.0": {
+        "type": "package",
+        "dependencies": {
+          "SFML.Audio": "2.5.0",
+          "SFML.Graphics": "2.5.0",
+          "SFML.System": "2.5.0",
+          "SFML.Window": "2.5.0"
         }
       },
       "SFML.System/2.5.0": {
@@ -290,17 +318,17 @@
           }
         }
       },
-      "Map/1.0.0": {
+      "Raycaster/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "SFML.Graphics": "2.5.0"
+          "SFML.Net": "2.5.0"
         },
         "compile": {
-          "bin/placeholder/Map.dll": {}
+          "bin/placeholder/Raycaster.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Map.dll": {}
+          "bin/placeholder/Raycaster.dll": {}
         }
       }
     }
@@ -375,6 +403,19 @@
         "runtimes/win-x86/native/openal32.dll"
       ]
     },
+    "SFML.Audio/2.5.0": {
+      "sha512": "M5EIksRefT3nsLT32oEpESStsnlixR+YjKS6fUMl+vDQ3gdMaV4jc84pg3kbfM9w4RYKAyH6OWV4bzDU5FNZyA==",
+      "type": "package",
+      "path": "sfml.audio/2.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/SFML.Audio.dll",
+        "lib/netstandard2.0/SFML.Audio.xml",
+        "sfml.audio.2.5.0.nupkg.sha512",
+        "sfml.audio.nuspec"
+      ]
+    },
     "SFML.Graphics/2.5.0": {
       "sha512": "77Nuz0qmK2q2+901J0439LC6qFNw5VT0qjqqA7zSaM0WrV7K/UozBjfO/ROCY0iW+w7IEqPYiXBK4A7xO5nvsQ==",
       "type": "package",
@@ -386,6 +427,17 @@
         "lib/netstandard2.0/SFML.Graphics.xml",
         "sfml.graphics.2.5.0.nupkg.sha512",
         "sfml.graphics.nuspec"
+      ]
+    },
+    "SFML.Net/2.5.0": {
+      "sha512": "XVxrtNX6FJOpI7OzsTlKUKI92C8CKVe1rYtNbyj9fdIdZgidwpK/kExhxH5XYxpJ5C1/EUsGdOrGx4BCfsQvbw==",
+      "type": "package",
+      "path": "sfml.net/2.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "sfml.net.2.5.0.nupkg.sha512",
+        "sfml.net.nuspec"
       ]
     },
     "SFML.System/2.5.0": {
@@ -414,15 +466,15 @@
         "sfml.window.nuspec"
       ]
     },
-    "Map/1.0.0": {
+    "Raycaster/1.0.0": {
       "type": "project",
-      "path": "../Map/Map.csproj",
-      "msbuildProject": "../Map/Map.csproj"
+      "path": "../Raycaster/Raycaster.csproj",
+      "msbuildProject": "../Raycaster/Raycaster.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Map >= 1.0.0"
+      "Raycaster >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -438,20 +490,22 @@
       "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj": {
-              "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj"
+            "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj": {
+              "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj"
             }
           }
         }
@@ -481,7 +535,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

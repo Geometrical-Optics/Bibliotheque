@@ -10,18 +10,19 @@ public class Fugitif : NPC
 {
     private bool Vu;
     private HealingWeapon Weapon;
-    public int Health;
+    //public int Health;
     //private Player _player;
     
     
-    public Fugitif(int id, (double X, double Y) coordinates, Carte board, float speed) : base(id, coordinates, board, speed)
+    public Fugitif(int health, (double X, double Y) coordinates, Carte board, float speed) : base(health, coordinates, board, speed)
     {
-        Health = 10;
+        Health = health;
         Symbol = "F";
         Vu = false;
         Weapon = new HealingWeapon("Stick", 5);
         //_player = new Player();
     }
+    
 
     public double Distance((double X, double Y) coor, (double X, double Y) coordinates_player)
     {
@@ -44,7 +45,7 @@ public class Fugitif : NPC
     
     public bool valid((double X, double Y) coor)
     {
-        if (coor.X >= 0 && coor.X < Board.GetLength(0) && coor.Y >= 0 && coor.Y < Board.GetLength(1) && !Board[(int)coor.X, (int)coor.Y].IsColliding((coor.X,coor.Y)) )
+        if ((int)coor.X > 0.5 && coor.X < Board.GetLength(0)-2 && (int)coor.Y > 0.5 && coor.Y < Board.GetLength(1)-2)// && !Board[(int)coor.X, (int)coor.Y].IsColliding((coor.X,coor.Y)) && !Board[(int)Math.Ceiling(coor.X), (int)Math.Ceiling(coor.Y)].IsColliding((coor.X,coor.Y)) )
         {
             return true;
         }
@@ -148,7 +149,7 @@ public class Fugitif : NPC
     
     public bool HaveToHeal((double X, double Y) coordinates_player)
     {
-        if (Math.Abs(Coordinates.X - coordinates_player.X) < 3 && Math.Abs(Coordinates.Y - coordinates_player.Y) < 3)
+        if (Math.Abs(Coordinates.X - coordinates_player.X) < 0.5 && Math.Abs(Coordinates.Y - coordinates_player.Y) < 0.5)
             return true;
         else
             return false;
@@ -161,10 +162,27 @@ public class Fugitif : NPC
         else
             return false;
     }
+    
+    public bool CanMoveNPC((double X, double Y) coordinates)
+    {
+        if (Math.Abs(Coordinates.X - coordinates.X) < Board.GetLength(0)/5 && Math.Abs(Coordinates.Y - coordinates.Y) < Board.GetLength(1)/5)
+            return true;
+        else
+            return false;
+    }
 
     public void Heal((double X, double Y) coordinates_player, Player _player)
     {
-        _player.Health += Weapon.Care;
+        if (_player.Health < 1000)
+        {
+            _player.Health += Weapon.Care;
+        }
+    }
+    
+    public void HealNPC(NPC npc)
+    {
+        if (npc.Health < 1000)
+            npc.Health += Weapon.Care;
     }
 
     public void Update((double X, double Y) coordinates_player, Player _player)
@@ -176,7 +194,7 @@ public class Fugitif : NPC
                 Vu = CanMove(coordinates_player);
                 if (Vu & Coordinates != coordinates_player)
                 {
-                    (double, double) oui = PathFinding(coordinates_player);
+                    (double, double) oui = aux(coordinates_player);
                     Coordinates = oui;
                 }
 
@@ -195,6 +213,39 @@ public class Fugitif : NPC
                 }
 
                 
+            }
+
+            Health -= 1;
+        }
+    }
+
+    public void UpdateNPC(NPC npc)
+    {
+        if (Health > 0 )
+        {
+            if (npc.Health > 0)
+            {
+                Vu = CanMoveNPC(npc.Coordinates);
+                if (Vu & Coordinates != npc.Coordinates)
+                {
+                    (double, double) oui = aux(npc.Coordinates);
+                    Coordinates = oui;
+                }
+
+                Vu = false;
+                if (HaveToHeal(npc.Coordinates))
+                {
+                    if (npc.Health == 100)
+                    {
+                        Console.WriteLine("You can't get more care !");
+                    }
+                    else
+                    {
+                        HealNPC(npc);
+                        Console.WriteLine($"Your health is now: {npc.Health}");
+                    }
+                }
+
             }
 
             Health -= 1;

@@ -27,23 +27,9 @@ public class Player
             }
         }
 
-        public void ClearInventory()
-        {
-            Bag.Clear();
-        }
-        public void PrintBag()
-        {
-            Bag.ForEach(item => Console.WriteLine(item.ToString()));
-        }
-
         public override string ToString()
         {
             return $"Health: {Health}\n";
         }
-
-        public void PrintStat()
-        {
-            Console.Write($"Health: {Health}\n");
-            PrintBag();
-        }
+        
 }

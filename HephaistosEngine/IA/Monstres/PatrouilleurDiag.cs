@@ -5,17 +5,18 @@ namespace IA;
 public class PatrouilleurDiag : NPC
 {
     public int Health;
+    public bool avance = true;
     
-    public PatrouilleurDiag(int id, (double X, double Y) coordinates, Carte board, float speed) : base(id, coordinates, board, speed)
+    public PatrouilleurDiag(int health, (double X, double Y) coordinates, Carte board, float speed) : base(health, coordinates, board, speed)
     {
         Symbol = "D";
-        Health = 30;
+        Health = health;
     }
 
     
     public bool CanBlowUp((double X, double Y) coordinates_player)
     {
-        if (Math.Abs(Coordinates.X - coordinates_player.X) < 3 || Math.Abs(Coordinates.Y - coordinates_player.Y) < 3)
+        if (Math.Abs(Coordinates.X - coordinates_player.X) < 1.2 && Math.Abs(Coordinates.Y - coordinates_player.Y) < 1.2)
             return true;
         else
             return false;
@@ -27,37 +28,91 @@ public class PatrouilleurDiag : NPC
             _player.Health -= Health;
         else
             _player.Health = 0;
+        
+    }
+    
+    public void BlowUpNPC(NPC npc)
+    {
+        if (npc.Health - Health > 0)
+            npc.Health -= Health;
+        else
+            npc.Health = 0;
     }
     
     
     public void Update((double X, double Y) coordinates_player, Player _player)
     {
-        if (_player.IsAlive())
+        if (avance)
         {
             if (CanBlowUp(coordinates_player))
             {
                 BlowUp(_player);
-                Console.WriteLine($"Your health is now: {_player.Health}");
+            }
+            
+            if ((int)Coordinates.X != Board.GetLength(0) && (int)Coordinates.Y != Board.GetLength(1) && !Board[(int)(Coordinates.X + 0.1*Speed), (int)(Coordinates.Y + 0.1*Speed)].IsColliding((Coordinates.X + 0.1*Speed, Coordinates.Y + 0.1*Speed)))
+            {
+                Coordinates = (Coordinates.X + 0.1*Speed, Coordinates.Y + 0.1*Speed);
             }
             else
             {
-                if ((int)Coordinates.X != Board.GetLength(0) && (int)Coordinates.Y != Board.GetLength(1) && !Board[(int)(Coordinates.X + 0.1*Speed), (int)(Coordinates.Y + 0.1*Speed)].IsColliding((Coordinates.X + 0.1*Speed, Coordinates.Y + 0.1*Speed)))
-                {
-                    Coordinates = (Coordinates.X + 0.1*Speed, Coordinates.Y + 0.1*Speed);
-                }
-                else
-                {
-                    if ((int)Coordinates.X != 0 && (int)Coordinates.Y != 0 && !Board[(int)(Coordinates.X - 0.1*Speed), (int)(Coordinates.Y - 0.1*Speed)].IsColliding((Coordinates.X - 0.1*Speed, Coordinates.Y - 0.1*Speed)))
-                    {
-                        Coordinates = (Coordinates.X - 0.1*Speed, Coordinates.Y - 0.1*Speed);
-                    }
-                }
-            }
-            if (_player.IsAlive() == false)
-            {
-                Console.WriteLine("You lost !");
+                avance = false;
             }
         }
-        
+        else
+        {
+            
+            if (CanBlowUp(coordinates_player))
+            {
+                BlowUp(_player);
+            }
+            
+            if ((int)Coordinates.X != 0 && (int)Coordinates.Y != 0 && !Board[(int)(Coordinates.X - 0.1*Speed), (int)(Coordinates.Y - 0.1*Speed)].IsColliding((Coordinates.X - 0.1*Speed, Coordinates.Y - 0.1*Speed)))
+            {
+                Coordinates = (Coordinates.X - 0.1*Speed, Coordinates.Y - 0.1*Speed);
+            }
+            else
+            {
+                avance = true;
+            }
+        }
+    }
+    
+    public void UpdateNPC(NPC npc)
+    {
+        if (avance)
+        {
+            
+            if (CanBlowUp(npc.Coordinates))
+            {
+                BlowUpNPC(npc);
+                Console.WriteLine($"Your health is now: {npc.Health}");
+            }
+            
+            if ((int)Coordinates.X != Board.GetLength(0) && (int)Coordinates.Y != Board.GetLength(1) && !Board[(int)(Coordinates.X + 0.1*Speed), (int)(Coordinates.Y + 0.1*Speed)].IsColliding((Coordinates.X + 0.1*Speed, Coordinates.Y + 0.1*Speed)))
+            {
+                Coordinates = (Coordinates.X + 0.1*Speed, Coordinates.Y + 0.1*Speed);
+            }
+            else
+            {
+                avance = false;
+            }
+        }
+        else
+        {
+            if (CanBlowUp(npc.Coordinates))
+            {
+                BlowUpNPC(npc);
+                Console.WriteLine($"Your health is now: {npc.Health}");
+            }
+            
+            if ((int)Coordinates.X != 0 && (int)Coordinates.Y != 0 && !Board[(int)(Coordinates.X - 0.1*Speed), (int)(Coordinates.Y - 0.1*Speed)].IsColliding((Coordinates.X - 0.1*Speed, Coordinates.Y - 0.1*Speed)))
+            {
+                Coordinates = (Coordinates.X - 0.1*Speed, Coordinates.Y - 0.1*Speed);
+            }
+            else
+            {
+                avance = true;
+            }
+        }
     }
 }

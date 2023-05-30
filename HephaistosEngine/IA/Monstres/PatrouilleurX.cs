@@ -8,15 +8,15 @@ public class PatrouilleurX : NPC
     public int Health;
     public bool avance = true;
     
-    public PatrouilleurX(int id, (double X, double Y) coordinates,  Carte board, float speed) : base(id, coordinates, board, speed)
+    public PatrouilleurX(int health, (double X, double Y) coordinates,  Carte board, float speed) : base(health, coordinates, board, speed)
     {
         Symbol = "X";
-        Health = 30;
+        Health = health;
     }
 
     public bool CanAttack((double X, double Y) coordinates_player)
     {
-        if (Math.Abs(Coordinates.X - coordinates_player.X) < 1 || Math.Abs(Coordinates.Y - coordinates_player.Y) < 1)
+        if (Math.Abs(Coordinates.Y - coordinates_player.Y) < 1.2)
             return true;
         else
             return false;
@@ -26,6 +26,12 @@ public class PatrouilleurX : NPC
     {
         if (avance)
         {
+            
+            if (CanAttack(coordinates_player))
+            {
+                _player.Health -= 10;
+            }
+            
             if ((int)Coordinates.X != Board.GetLength(0) &&
                 !Board[(int)(Coordinates.X + 0.1 * Speed), (int)Coordinates.Y]
                     .IsColliding((Coordinates.X + 0.1 * Speed, Coordinates.Y)))
@@ -39,6 +45,11 @@ public class PatrouilleurX : NPC
         }
         else
         {
+            if (CanAttack(coordinates_player))
+            {
+                _player.Health -= 10;
+            }
+            
             if ((int)Coordinates.X != Board.GetLength(0) &&
                 !Board[(int)(Coordinates.X - 0.1 * Speed), (int)Coordinates.Y]
                     .IsColliding((Coordinates.X - 0.1 * Speed, Coordinates.Y)))
@@ -50,33 +61,46 @@ public class PatrouilleurX : NPC
                 avance = true;
             }
         }
-        /*
-        if (_player.IsAlive())
+    }
+    
+    public void UpdateNPC(NPC npc)
+    {
+        if (avance)
         {
-            if (CanAttack(coordinates_player))
+            
+            if (CanAttack(npc.Coordinates))
             {
-                _player.Health -= 10;
-                Console.WriteLine($"Your health is now: {_player.Health}");
+                npc.Health -= 10;
+            }
+            
+            if ((int)Coordinates.X != Board.GetLength(0) &&
+                !Board[(int)(Coordinates.X + 0.1 * Speed), (int)Coordinates.Y]
+                    .IsColliding((Coordinates.X + 0.1 * Speed, Coordinates.Y)))
+            {
+                Coordinates = (Coordinates.X + 0.1 * Speed, Coordinates.Y);
             }
             else
             {
-                if ((int)Coordinates.X != Board.GetLength(0) && !Board[(int)(Coordinates.X + 0.1*Speed), (int)Coordinates.Y].IsColliding((Coordinates.X + 0.1*Speed, Coordinates.Y)))
-                {
-                    Coordinates = (Coordinates.X + 0.1*Speed, Coordinates.Y);
-                }
-                else
-                {
-                    if ((int)Coordinates.X != 0 && !Board[(int)(Coordinates.X - 0.1*Speed), (int)Coordinates.Y].IsColliding((Coordinates.X - 0.1*Speed, Coordinates.Y)))
-                    {
-                        Coordinates = (Coordinates.X - 0.1*Speed, Coordinates.Y);
-                    }
-                }
-            }
-            if (_player.IsAlive() == false)
-            {
-                Console.WriteLine("You lost !");
+                avance = false;
             }
         }
-        */
+        else
+        {
+            if (CanAttack(npc.Coordinates))
+            {
+                npc.Health -= 10;
+            }
+            
+            if ((int)Coordinates.X != Board.GetLength(0) &&
+                !Board[(int)(Coordinates.X - 0.1 * Speed), (int)Coordinates.Y]
+                    .IsColliding((Coordinates.X - 0.1 * Speed, Coordinates.Y)))
+            {
+                Coordinates = (Coordinates.X - 0.1 * Speed, Coordinates.Y);
+            }
+            else
+            {
+                avance = true;
+            }
+        }
     }
 }
