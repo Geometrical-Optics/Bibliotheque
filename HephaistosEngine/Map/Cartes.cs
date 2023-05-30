@@ -192,6 +192,20 @@ public class Carte
         
         return false;
     }
+    
+    public bool IsCollidingNPC((double X, double Y, float Z) Coordinates, float height)
+    {
+        foreach (var block in this[(int)Coordinates.X,(int)Coordinates.Y])
+        {
+            if (block.Collide(Coordinates) && Coordinates.Z+height >= block._posZ
+                                           && Coordinates.Z+height <= block._posZ+_Height)
+            {
+                return true;
+            }
+        }
+        
+        return false;
+    }
 
     public void MoveEntity(RaycastSprite Entity, (float X, float Y) Coord)
     {
