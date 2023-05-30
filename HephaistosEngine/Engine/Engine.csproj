@@ -12,7 +12,6 @@
       <ProjectReference Include="..\AudioEngine\AudioEngine.csproj" />
       <ProjectReference Include="..\IA\IA.csproj" />
       <ProjectReference Include="..\Physix\Physix.csproj" />
-      <ProjectReference Include="..\Raycasting\Raycasting.csproj" />
     </ItemGroup>
     
 

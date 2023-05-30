@@ -460,19 +460,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lenny\\.nuget\\packages\\": {}
+    "C:\\Users\\clem_\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj",
+      "projectUniqueName": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj",
       "projectName": "Raycaster",
-      "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj",
-      "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\obj\\",
+      "projectPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj",
+      "packagesPath": "C:\\Users\\clem_\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Raycaster\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\clem_\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -519,7 +519,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

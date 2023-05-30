@@ -2,7 +2,7 @@
 using SFML.System;
 using System;
 
-namespace AudioMoteur;
+namespace AudioEngine;
 
 public class VolumeManager
 {

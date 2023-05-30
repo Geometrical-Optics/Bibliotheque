@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Engine\\Engine.csproj": {}
+    "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Engine\\Engine.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj": {
+    "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj",
+        "projectUniqueName": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj",
         "projectName": "AudioEngine",
-        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj",
-        "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\AudioEngine\\obj\\",
+        "projectPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj",
+        "packagesPath": "C:\\Users\\clem_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\AudioEngine\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\clem_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,21 +61,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Engine\\Engine.csproj": {
+    "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Engine\\Engine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Engine\\Engine.csproj",
+        "projectUniqueName": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Engine\\Engine.csproj",
         "projectName": "Engine",
-        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Engine\\Engine.csproj",
-        "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Engine\\obj\\",
+        "projectPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Engine\\Engine.csproj",
+        "packagesPath": "C:\\Users\\clem_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Engine\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\clem_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,17 +89,14 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj": {
-                "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj"
+              "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj": {
+                "projectPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\AudioEngine\\AudioEngine.csproj"
               },
-              "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj": {
-                "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj"
+              "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj": {
+                "projectPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj"
               },
-              "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {
-                "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj"
-              },
-              "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycasting\\Raycasting.csproj": {
-                "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycasting\\Raycasting.csproj"
+              "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {
+                "projectPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj"
               }
             }
           }
@@ -129,21 +126,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj": {
+    "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj",
+        "projectUniqueName": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj",
         "projectName": "IA",
-        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj",
-        "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\obj\\",
+        "projectPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj",
+        "packagesPath": "C:\\Users\\clem_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\IA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\clem_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -157,8 +154,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj": {
-                "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj"
+              "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj": {
+                "projectPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj"
               }
             }
           }
@@ -188,82 +185,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj": {
+    "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj",
-        "projectName": "Map",
-        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj",
-        "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "dependencies": {
-            "SFML.Graphics": {
-              "target": "Package",
-              "version": "[2.5.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj",
+        "projectUniqueName": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj",
         "projectName": "Physix",
-        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj",
-        "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\obj\\",
+        "projectPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj",
+        "packagesPath": "C:\\Users\\clem_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Physix\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\clem_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -310,21 +246,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj": {
+    "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj",
+        "projectUniqueName": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj",
         "projectName": "Raycaster",
-        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj",
-        "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycaster\\obj\\",
+        "projectPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Raycaster\\Raycaster.csproj",
+        "packagesPath": "C:\\Users\\clem_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Raycaster\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\clem_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -371,72 +307,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycasting\\Raycasting.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycasting\\Raycasting.csproj",
-        "projectName": "Raycasting",
-        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycasting\\Raycasting.csproj",
-        "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Raycasting\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net7.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
-            "projectReferences": {
-              "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj": {
-                "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Map\\Map.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
-          "dependencies": {
-            "SFML.Graphics": {
-              "target": "Package",
-              "version": "[2.5.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

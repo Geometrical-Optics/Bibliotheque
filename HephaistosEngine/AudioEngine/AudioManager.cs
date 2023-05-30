@@ -2,7 +2,7 @@
 using SFML.System;
 using System.Collections.Generic;
 
-namespace AudioMoteur;
+namespace AudioEngine;
 
 public class AudioManager
 {

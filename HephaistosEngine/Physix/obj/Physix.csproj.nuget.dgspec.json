@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {}
+    "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {}
   },
   "projects": {
-    "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {
+    "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj",
+        "projectUniqueName": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj",
         "projectName": "Physix",
-        "projectPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj",
-        "packagesPath": "C:\\Users\\lenny\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\Physix\\obj\\",
+        "projectPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Physix\\Physix.csproj",
+        "packagesPath": "C:\\Users\\clem_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\Physix\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\lenny\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\clem_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

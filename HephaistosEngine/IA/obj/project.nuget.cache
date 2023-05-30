@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "er21pBUdjQ+27tvGqP96O+u7QaJJ4/a/s3W08H/qpH5BDHKaQ31tfqjXoz436XD3+2uXRAv6fXQSJUv+IayyFw==",
+  "dgSpecHash": "PCdhjG3k1/IjNgMvFPpjhob90OZ6xrqipKNJJRtlxKbA9kbMD21EjP6HIGY4vI4lOTOafOvWBLvnPYUxlPGF0g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lenny\\Documents\\GitHub\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj",
+  "projectFilePath": "C:\\Users\\clem_\\OneDrive\\Documents\\EPITA\\2027\\C#\\Mont_Git\\Bibliotheque\\HephaistosEngine\\IA\\IA.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\lenny\\.nuget\\packages\\csfml\\2.5.0\\csfml.2.5.0.nupkg.sha512",
-    "C:\\Users\\lenny\\.nuget\\packages\\sfml.audio\\2.5.0\\sfml.audio.2.5.0.nupkg.sha512",
-    "C:\\Users\\lenny\\.nuget\\packages\\sfml.graphics\\2.5.0\\sfml.graphics.2.5.0.nupkg.sha512",
-    "C:\\Users\\lenny\\.nuget\\packages\\sfml.net\\2.5.0\\sfml.net.2.5.0.nupkg.sha512",
-    "C:\\Users\\lenny\\.nuget\\packages\\sfml.system\\2.5.0\\sfml.system.2.5.0.nupkg.sha512",
-    "C:\\Users\\lenny\\.nuget\\packages\\sfml.window\\2.5.0\\sfml.window.2.5.0.nupkg.sha512"
+    "C:\\Users\\clem_\\.nuget\\packages\\csfml\\2.5.0\\csfml.2.5.0.nupkg.sha512",
+    "C:\\Users\\clem_\\.nuget\\packages\\sfml.audio\\2.5.0\\sfml.audio.2.5.0.nupkg.sha512",
+    "C:\\Users\\clem_\\.nuget\\packages\\sfml.graphics\\2.5.0\\sfml.graphics.2.5.0.nupkg.sha512",
+    "C:\\Users\\clem_\\.nuget\\packages\\sfml.net\\2.5.0\\sfml.net.2.5.0.nupkg.sha512",
+    "C:\\Users\\clem_\\.nuget\\packages\\sfml.system\\2.5.0\\sfml.system.2.5.0.nupkg.sha512",
+    "C:\\Users\\clem_\\.nuget\\packages\\sfml.window\\2.5.0\\sfml.window.2.5.0.nupkg.sha512"
   ],
   "logs": []
 }
