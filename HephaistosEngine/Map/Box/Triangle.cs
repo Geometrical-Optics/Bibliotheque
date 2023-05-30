@@ -60,8 +60,9 @@ public class Triangle : Box
     
     public bool Collide((double X, double Y, float Z) Coordinates)
     {
-        if (((int)Coordinates.X == _Coordinates.X && (int)Coordinates.Y == _Coordinates.Y)
-            && (Coordinates.Z >= _posZ-0.75 && Coordinates.Z < _posZ+_Height ))
+        if (IsColliding((Coordinates.X,Coordinates.Y))
+            && Coordinates.Z >= _posZ
+            && Coordinates.Z <= _posZ+_Height)
             return true;
 
         return false;

@@ -15,10 +15,11 @@ public class DrawDistance
     public static DrawDistance DrawDistance_320 = new DrawDistance(375, 1875, 
         new (uint, uint)[]
         {
-            (3750,256),
-            (3072,128),
-            (2560,64),
-            (1875,4),
+            //(3750,256),
+            //(3072,128),
+            //(2560,64),
+            //(1875,4),
+            //(1500,3),
             (0,2)
         });
     

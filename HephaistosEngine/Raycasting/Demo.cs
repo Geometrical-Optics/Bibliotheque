@@ -16,7 +16,11 @@ public class Demo
     //private TextureManager _texturemanager;
     private VideoMode _mode = new VideoMode(_width,_height);
     private RenderWindow _window;
-    private Raycaster _renderengine = new Raycaster((_width,_height), (0,0), 1);
+    
+    
+    private Raycaster _renderengine; // = new Raycaster((320,240), (100,20), 1);
+    
+    
 
     private double angle = 0;
     private double x = 1.5;
@@ -24,19 +28,19 @@ public class Demo
     private float z = 0;
     
     private Image[] _textures;
-    private int _cubeheight;
 
-    public Demo(string title, Image[] textures, int Height)
+    public Demo(string title, Image[] textures)
     {
-        _window = new RenderWindow(_mode,title);//Styles.Fullscreen);
+        
+        
+        _window = new RenderWindow(_mode,title); // Utiliser Styles.Fullscreen si vous souhaitez démarrer en plein écran
         _window.SetVerticalSyncEnabled(true);
         _window.Closed += (sender, args) => { _window.Close(); };
         _window.SetActive(false);
 
 
         _textures = textures;
-        _cubeheight = Height;
-        _renderengine = new Raycaster((_width,_height), (0,0), Height);
+        _renderengine = new Raycaster((_width,_height), (0,0));
     }
     
     public void Run(Carte map, RaycastSprite[] sprites)
@@ -49,7 +53,11 @@ public class Demo
         Clock clock = new Clock();
         double lastTime = 0;
         double fps = 0;
-        var camtest = new Camera(DrawDistance.DrawDistance_320_NoVerticalAngle);
+        
+        
+        var camtest = new Camera(DrawDistance.DrawDistance_320);
+        
+        
         //var music = new Music(
         //    "C:/Users/yvanf/OneDrive/Documents/Raycaster/Raycaster/Raycaster/Ressources/doom.ogg");
         Sprite tempomachinegun = new Sprite(new Texture(
@@ -95,28 +103,32 @@ public class Demo
             angle %= Math.PI * 2;
 
             if (Keyboard.IsKeyPressed(Keyboard.Key.Up) 
-                && (map[(int)(x + Math.Cos(angle) * 0.5), (int)(y + Math.Sin(angle) * 0.5),0] is Empty
-                    || map[(int)(x + Math.Cos(angle) * 0.5), (int)(y + Math.Sin(angle) * 0.5),0].Collide(
-                        ((int)(x + Math.Cos(angle) * 0.5), (int)(y + Math.Sin(angle) * 0.5), z)) == false))
+                && map.IsColliding((x + Math.Cos(angle) * 0.5,y + Math.Sin(angle) * 0.5,z)) == false)
+                //&& (map[(int)(x + Math.Cos(angle) * 0.5), (int)(y + Math.Sin(angle) * 0.5),0] is Empty
+                //    || map[(int)(x + Math.Cos(angle) * 0.5), (int)(y + Math.Sin(angle) * 0.5),0].Collide(
+                //        ((int)(x + Math.Cos(angle) * 0.5), (int)(y + Math.Sin(angle) * 0.5), z)) == false))
             {
                 x += Math.Cos(angle)*0.1;
                 y += Math.Sin(angle)*0.1;
             }
             if (Keyboard.IsKeyPressed(Keyboard.Key.Down)
-                && (map[(int)(x - Math.Cos(angle) * 0.5),(int)(y - Math.Sin(angle) * 0.5),0] is Empty
-                || map[(int)(x - Math.Cos(angle) * 0.5), (int)(y - Math.Sin(angle) * 0.5),0].Collide(
-                    ((int)(x - Math.Cos(angle) * 0.5), (int)(y - Math.Sin(angle) * 0.5), z)) == false))
+                && map.IsColliding((x - Math.Cos(angle) * 0.5,y - Math.Sin(angle) * 0.5,z)) == false)
+                //&& (map[(int)(x - Math.Cos(angle) * 0.5),(int)(y - Math.Sin(angle) * 0.5),0] is Empty
+                //|| map[(int)(x - Math.Cos(angle) * 0.5), (int)(y - Math.Sin(angle) * 0.5),0].Collide(
+                //    ((int)(x - Math.Cos(angle) * 0.5), (int)(y - Math.Sin(angle) * 0.5), z)) == false))
             {
                 x -= Math.Cos(angle)*0.1;
                 y -= Math.Sin(angle)*0.1;
             }
 
-            if (Keyboard.IsKeyPressed(Keyboard.Key.Space))
+            if (Keyboard.IsKeyPressed(Keyboard.Key.Space)
+                && map.IsColliding((x,y,z+0.01f)) == false)
             {
                 z += 0.01f;
             }
-            if (Keyboard.IsKeyPressed(Keyboard.Key.LControl) && z - 0.01f >= 0 && map[(int)(x + Math.Cos(angle) * 0.5), (int)(y + Math.Sin(angle) * 0.5),0].Collide(
-                    ((int)(x + Math.Cos(angle) * 0.5), (int)(y + Math.Sin(angle) * 0.5), z)) == false)
+            if (Keyboard.IsKeyPressed(Keyboard.Key.LControl) 
+                && map.IsColliding((x,y,z-0.01f)) == false
+                && z - 0.01 > 0 )
             {
                 z -= 0.01f;
             }
@@ -132,6 +144,8 @@ public class Demo
                 camtest._VerticalPos -= 10;
             
             _window.Clear();
+            
+            
             _renderengine.Draw(map,
                _textures,
                image,

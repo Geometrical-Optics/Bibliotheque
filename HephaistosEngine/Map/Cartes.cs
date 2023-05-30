@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using Raycasting;
+using SFML.Graphics;
 
 namespace Map;
 
@@ -9,6 +10,7 @@ public class Carte
     public int _Height { get; private set; }
     public int _Width { get; private set; }
     public int _Depth { get; private set; }
+    public int _ZSize { get; private set; }
     private int _ChunkSize;
     
 
@@ -36,12 +38,13 @@ public class Carte
         }
     }
 
-    public Carte((int Width, int Height) Size, int ChunkSize)
+    public Carte((int Width, int Height, int Depth) Size, int ChunkSize)
     {
         _Height = Size.Height;
         _Width = Size.Width;
         _Depth = 1;
         _ChunkSize = ChunkSize;
+        _ZSize = Size.Depth;
 
         _Carte = new Chunck[_Width / _ChunkSize, _Height / _ChunkSize];
         for (int i = 0; i < (int)(_Width / _ChunkSize); i++)
@@ -104,6 +107,33 @@ public class Carte
 
     }
 
+    public void SuperSave(string path, string name, Image[] materials)
+    {
+        string way = path + name + '/';
+        
+        if (!Directory.Exists(way))
+        {
+            Directory.CreateDirectory(way);
+        }
+        
+        Save(way+'/'+name+".hep");
+    
+        for (int i = 0; i < materials.Length; i++)
+        {
+            string tmp = "img_";
+            int w = i;
+            while (w >= 10)
+            {
+                tmp += "9";
+                w /= 10;
+            }
+            tmp += w;
+            
+            
+            materials[i].SaveToFile(way + tmp + ".png");
+        }
+    }
+
     public void Load(string path)
     {
 
@@ -132,6 +162,35 @@ public class Carte
             }
         }
 
+    }
+    
+    public Image[] SuperLoad(string path, string name)
+    {
+        Load(path+name+'/'+name+".hep");
+        string[] filePaths = Directory.GetFiles(path+name+'/',"*.png");
+        filePaths = filePaths.OrderBy(x => x).ToArray();
+
+        Image[] result = new Image[filePaths.Length];
+        for (int i = 0; i < filePaths.Length; i++)
+        {
+            result[i] = new Texture(filePaths[i]).CopyToImage();
+        }
+
+        return result;
+    }
+
+    public bool IsColliding((double X, double Y, float Z) Coordinates)
+    {
+        foreach (var block in this[(int)Coordinates.X,(int)Coordinates.Y])
+        {
+            if (block.Collide(Coordinates) && Coordinates.Z+(0.75 / _ZSize) >= block._posZ
+                                           && Coordinates.Z+(0.75 / _ZSize) <= block._posZ+_Height)
+            {
+                return true;
+            }
+        }
+        
+        return false;
     }
 
     public void MoveEntity(RaycastSprite Entity, (float X, float Y) Coord)

@@ -1,4 +1,5 @@
-﻿using SFML.Graphics;
+﻿using Map;
+using SFML.Graphics;
 
 namespace Raycasting;
 
@@ -9,8 +10,8 @@ public class RaycastSprite
     public float Z { get; set; }
 
     public (float X, float Y, float Z) _Size { get; set; }
-    public Image _Texture { get; }  
-    public Image[] _TextureList { get; set; }  
+    public int _Texture { get; }  
+    public int[] _TextureList { get; set; }  
     public (float X, float Y) _TexturePosition { get; set; }
 
     public double _Angle { get; set; } 
@@ -26,8 +27,8 @@ public class RaycastSprite
     }
 
     public RaycastSprite((float X, float Y, float Z) Position, (float X, float Y, float Z) Size, 
-        Image Texture,
-        (float X, float Y) TexturePosition)
+        int Texture,
+        (float X, float Y) TexturePosition, Carte map)
     {
         X = Position.X;
         Y = Position.Y;
@@ -37,7 +38,23 @@ public class RaycastSprite
         _Texture = Texture;
         _TexturePosition = TexturePosition;
         _Angle = 0;
-        _TextureList = new[] { Texture, Texture, Texture, Texture };
+        _TextureList = new[] { Texture, Texture, Texture, Texture, Texture, Texture };
+        map.MoveEntity(this, (X, Y));
+    }
+    
+    public RaycastSprite((float X, float Y, float Z) Position, (float X, float Y, float Z) Size, 
+        int Texture, Carte map)
+    {
+        X = Position.X;
+        Y = Position.Y;
+        Z = Position.Z;
+
+        _Size = Size;
+        _Texture = Texture;
+        _TexturePosition = (0,0);
+        _Angle = 0;
+        _TextureList = new[] { Texture, Texture, Texture, Texture, Texture, Texture };
+        map.MoveEntity(this, (X, Y));
     }
 
     public bool GetCollision(double x, double y)
@@ -70,7 +87,7 @@ public class RaycastSprite
         }
     }
     
-    public Image GetTexture(double x, double y)
+    public int GetTexture(double x, double y)
     {
         if (_Angle != 0)
         {
@@ -113,7 +130,7 @@ public class RaycastSprite
         _Angle = angle;
     }
     
-    public uint GetTextureX(double x, double y)
+    public uint GetTextureX(double x, double y, Image[] materials)
     {
         if (_Angle != 0)
         {
@@ -133,12 +150,12 @@ public class RaycastSprite
             
         }
         
-        uint xx = (uint)((((X + (_Size.X/2) - x + ((_Size.X)*_TexturePosition.X)) / _Size.X)%1) * (_Texture.Size.X - 1));
+        uint xx = (uint)((((X + (_Size.X/2) - x + ((_Size.X)*_TexturePosition.X)) / _Size.X)%1) * (materials[_Texture].Size.X - 1));
         
         if (((X + (_Size.X/2) - x)%1)< 0.02
             || ((X + (_Size.X/2) - x)%1) > _Size.X-0.02)
         {
-            xx = (uint)((((Y + (_Size.Y / 2) - y + ((_Size.Y)*_TexturePosition.Y)) / (_Size.Y)) % 1) * (_Texture.Size.X - 1));
+            xx = (uint)((((Y + (_Size.Y / 2) - y + ((_Size.Y)*_TexturePosition.Y)) / (_Size.Y)) % 1) * (materials[_Texture].Size.X - 1));
         }
         
 

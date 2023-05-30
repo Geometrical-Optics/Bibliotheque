@@ -14,33 +14,20 @@ public class Raycaster
     private float _Size;
     public float lum = 0.75f;
 
-    public Raycaster((uint Width, uint Height) Scale, (int X, int Y) Position, float Size)
+    public Raycaster((uint Width, uint Height) Scale, (int X, int Y) Position)
     {
         _Width = Scale.Width;
         _Height = Scale.Height;
 
         _Position = Position;
-        _Size = Size;
     }
 
     public static double Dist((double x, double y) Pos1, (double x, double y) Pos2)
     {
         return Math.Sqrt((Pos1.x - Pos2.x)*(Pos1.x-Pos2.x) + (Pos1.y-Pos2.y)*(Pos1.y-Pos2.y));
     }
-    
-    public double Modulo(double a, double b)
-    {
-        return a - (int)((int)a / b) * b;
-    }
 
-    public double abs(double a)
-    {
-        if (a < 0)
-            return -a;
-        return a;
-    }
-
-    public void DrawVerticalLine(int Start, int i, int End, 
+    private void DrawVerticalLine(int Start, int i, int End, 
         ref int column, byte[] Image, Image texture, double yy,
         uint xx, Color shade)
     {
@@ -124,13 +111,13 @@ public class Raycaster
 
         double n = Double.Abs((x - Position.X) / cos);
         double h = (halfres / ((n * cos2) + 0.000001)); // - ((h * 2) * Map[(int)x, (int)y]._posZ * _Size)
-        Image texture = entity.GetTexture(x, y);
+        Image texture = Textures[entity.GetTexture(x, y)];
         if (texture != null)
         {
 
             var val = (byte)(Math.Min((lum + ((h / halfres) * (1 - lum))) * 255, 255));
             var shade = new Color(val, val, val);
-            uint xx = entity.GetTextureX(x, y);
+            uint xx = entity.GetTextureX(x, y, Textures);
 
             double yy = (1 / ((h * 2 + 0.01))) * texture.Size.Y;
             double counter = 0;
@@ -150,12 +137,6 @@ public class Raycaster
         }
     }
     
-    
-    
-    
-    
-    
-
     private void DrawColumn(Carte Map, 
         (double X, double Y, double Z) Position, 
         double Angle, 
@@ -251,7 +232,7 @@ public class Raycaster
                                   - ((h2 * 2) * Case._posZ * _Size)
                                   + ((h2 * 2) * Position.Z * _Size))+Vert;
 
-                    if (Case._posZ > Position.Z)
+                    if (Case._posZ > Position.Z + (0.5 / Map._ZSize)) // +(Coordinates.Z / _ZSize)
                         w = (int)(halfres
                                   + h2
                                   - (h2 * 2 * Case._posZ * _Size)
@@ -272,22 +253,59 @@ public class Raycaster
             
             // Entities
 
-            if (Map[(int)x, (int)y, 0]._ContainsEntity
-                && spritelist.Count != Entities.Length)
+            if (Map[(int)x, (int)y, 0]._ContainsEntity)
+                //&& spritelist.Count != Entities.Length)
             {
 
                 foreach (var entity in Entities)
                 {
-                    if (spritelist.Contains((entity.X, entity.Y)) == false)
+                    if (entity.GetCollision(x, y))
                     {
-                        var dist = 0;
-                        if (entity.GetCollision(x, y))
+                        //var dist = 0;
+                        if (spritelist.Contains((entity.X, entity.Y)) == false)
                         {
                             DrawSprite(Map, Position, (x, y),
                                 halfres, Textures, Image, cos, cos2, i, entity, ref column, Vert);
 
                             spritelist.Push((entity.X, entity.Y));
 
+                        }
+                        else //if (entity._TextureList[4] != 0)
+                        {
+                            double n = Double.Abs((x - Position.X) / cos);
+                            double h2 = (halfres / ((n * cos2) + 0.000001));
+                            Image texture = Textures[entity._TextureList[4]];
+                            var val = (byte)(Math.Min((lum + ((h2 / halfres) * (1 - lum))) * 255, 255));
+
+                            var shade = new Color(val, val, val);
+
+                            uint xx = (uint)((x % 1) * (texture.Size.X - 1));
+                            uint yy = (uint)((y % 1) * (texture.Size.Y - 1));
+                            int w = (int)(halfres
+                                          + h2
+                                          - ((h2 * 2) * entity._Size.Z * _Size)
+                                          - ((h2 * 2) * entity._Position.Z * _Size)
+                                          + ((h2 * 2) * Position.Z * _Size)) + Vert;
+
+                            if (entity._Position.Z > Position.Z)
+                            {
+                                texture = Textures[entity._TextureList[5]];
+                                w = (int)(halfres
+                                          + h2
+                                          - (h2 * 2 * entity._Position.Z * _Size)
+                                          + (h2 * 2 * Position.Z * _Size)) + Vert;
+                            }
+
+                            if (w < _Height && w >= 0 && Image[(((w * _Width * 4) + i * 4)) + 3] == 0)
+                            {
+                                column += 1;
+                                Color color = texture.GetPixel(xx, (uint)yy) * shade;
+
+                                Image[(((w * _Width * 4) + i * 4))] = color.R;
+                                Image[(((w * _Width * 4) + i * 4)) + 1] = color.G;
+                                Image[(((w * _Width * 4) + i * 4)) + 2] = color.B;
+                                Image[(((w * _Width * 4) + i * 4)) + 3] = 255;
+                            }
                         }
                     }
                 }
@@ -386,11 +404,6 @@ public class Raycaster
         }
     }
     
-    
-    
-    
-    
-    
     public void Draw(Carte Map, 
         Image[] Textures, 
         byte[] Image, 
@@ -398,6 +411,8 @@ public class Raycaster
         Camera Cam,
         RenderWindow _window)
     {
+
+        _Size = Map._ZSize;
         
         double FOV = 60;
         int halfres = ((int)_Height) / 2;
@@ -414,8 +429,9 @@ public class Raycaster
 
         Texture texture = new Texture(image2);
         Sprite sprite = new Sprite(texture);
-        /*sprite.Scale = new Vector2f((float)_window.Size.X/(float)_Width,
-            (float)_window.Size.Y/(float)_Height);*/
+        sprite.Origin = new Vector2f(0, 0);
+        sprite.Position = new Vector2f(_Position.X, _Position.Y);
+        
         sprite.Draw(_window,RenderStates.Default);
         
     }

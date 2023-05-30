@@ -56,8 +56,9 @@ public class Cylinder : Box
     
     public bool Collide((double X, double Y, float Z) Coordinates)
     {
-        if (((int)Coordinates.X == _Coordinates.X && (int)Coordinates.Y == _Coordinates.Y)
-            && (Coordinates.Z >= _posZ-0.75 && Coordinates.Z < _posZ+_Height ))
+        if (IsColliding((Coordinates.X,Coordinates.Y))
+                        && Coordinates.Z >= _posZ
+                        && Coordinates.Z <= _posZ+_Height)
             return true;
 
         return false;
@@ -111,7 +112,7 @@ public class Cylinder : Box
         height = sr.ReadDouble();
         size = sr.ReadDouble();
 
-        var tmp = new Cylinder((x, y), (float)height, text, floor, ceil, top, (float)z, (float)size);
+        var tmp = new Cylinder((x, y), (float)height, text, floor, ceil, top, (float)z, (float)Math.Sqrt(size));
 
         tmp._TexturePos = ((float)x1, (float)y1);
 
