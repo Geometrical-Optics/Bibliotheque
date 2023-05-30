@@ -18,6 +18,8 @@ public class Empty : Box
     
     public bool _ContainsEntity { get; set; }
     public float _posZ { get; private set; }
+    public int _distance { get; set;  }
+
 
     public Empty((int X, int Y) Coordinates, float Height, int floor, int ceil)
     {
@@ -33,6 +35,7 @@ public class Empty : Box
         _TopDownId = 0;
         _ContainsEntity = false;
         _TexturePos = (0, 0);
+        _distance = 0;
     }
 
     public bool IsColliding((double X, double Y) Coordinates)
@@ -48,6 +51,7 @@ public class Empty : Box
     public void Save(string path, BinaryWriter sw)
     {
         sw.Write(0);
+        sw.Write(_distance);
         sw.Write(_Coordinates.X);
         sw.Write(_Coordinates.Y);
         sw.Write(_FloorId);
@@ -60,13 +64,17 @@ public class Empty : Box
         int y;
         int floor;
         int ceil;
-        
+
+        var tempo = sr.ReadInt32();
         x = sr.ReadInt32();
         y = sr.ReadInt32();
         floor = sr.ReadInt32();
         ceil = sr.ReadInt32();
 
-        return new Empty((x, y), 0, floor, ceil);
+        var tmp = new Empty((x, y), 0, floor, ceil);
+        tmp._distance = tempo;
+
+        return tmp;
     }
     
     public uint GetTextureX((double X, double Y) Coordinates, Image Texture)

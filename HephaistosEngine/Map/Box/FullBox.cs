@@ -19,6 +19,8 @@ public class Full : Box
     
     public bool _ContainsEntity { get; set; }
     public float _posZ { get; private set; }
+    public int _distance { get; set;  }
+
 
     public Full((int X, int Y) Coordinates, float Height, int TextureId, int floor, 
         int ceil, int topid, float pos_Z)
@@ -33,6 +35,7 @@ public class Full : Box
         _TopDownId = topid;
         _ContainsEntity = false;
         _TexturePos = (0, 0);
+        _distance = 0;
 
         if (Height == 1 && pos_Z == 0)
             _IsTransparent = false;
@@ -63,6 +66,8 @@ public class Full : Box
     public void Save(string path, BinaryWriter sw)
     {
         sw.Write(1);
+        
+        sw.Write(_distance);
         sw.Write(_Coordinates.X);
         sw.Write(_Coordinates.Y);
         sw.Write((double)_posZ);
@@ -91,6 +96,8 @@ public class Full : Box
         int ceil;
         int top;
         double height;
+
+        var tempo = sr.ReadInt32();
         
         x = sr.ReadInt32();
         y = sr.ReadInt32();
@@ -108,6 +115,7 @@ public class Full : Box
         var tmp = new Full((x, y), (float)height, text, floor, ceil, top, (float)z);
 
         tmp._TexturePos = ((float)x1, (float)y1);
+        tmp._distance = tempo;
 
         return tmp;
     }

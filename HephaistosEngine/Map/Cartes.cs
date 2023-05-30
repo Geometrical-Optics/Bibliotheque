@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using Raycasting;
 using SFML.Graphics;
 
 namespace Map;
@@ -205,38 +204,6 @@ public class Carte
         }
         
         return false;
-    }
-
-    public void MoveEntity(RaycastSprite Entity, (float X, float Y) Coord)
-    {
-        for (int i = -1; i < 2; i++)
-        {
-            for (int j = -1; j < 2; j++)
-            {
-                if (Entity.X + i >= 0 && Entity.X + i < _Width 
-                                      && Entity.Y + j >= 0 && Entity.Y + j < _Height)
-                    foreach (var value in this[(int)(Entity.X + i), (int)(Entity.Y + j)])
-                    {
-                        value._ContainsEntity = false;
-                    }
-            }
-        }
-        
-        for (int i = -1; i < 2; i++)
-        {
-            for (int j = -1; j < 2; j++)
-            {
-                if (Coord.X + i >= 0 && Coord.X + i < _Width
-                                     && Coord.Y + j >= 0 && Coord.Y + j < _Height)
-                    foreach (var value in this[(int)(Coord.X + i), (int)(Coord.Y + j)])
-                    {
-                        value._ContainsEntity = true;
-                    }
-            }
-        }
-
-        Entity.X = Coord.X;
-        Entity.Y = Coord.Y;
     }
 
     public override string ToString()

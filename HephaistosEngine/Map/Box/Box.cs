@@ -17,6 +17,7 @@ public interface Box
     
     bool _ContainsEntity { get; set; }
     float _posZ { get; }
+    int _distance { get; set;  }
 
     bool IsColliding((double X, double Y) Coordinates);
     bool Collide((double X, double Y, float Z) Coordinates);

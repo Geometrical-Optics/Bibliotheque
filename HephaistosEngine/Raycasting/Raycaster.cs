@@ -174,6 +174,7 @@ public class Raycaster
                 && y >= 0 && y < Map.GetLength(1)
                 && (Map[(int)x, (int)y,0].IsColliding((x, y)) == false ||
                     Map[(int)x, (int)y,0]._IsTransparent)
+                && (Map[(int)x, (int)y,0]._distance == 0 || Map[(int)x, (int)y,0]._distance > distance)
                 && column < _Height-1)
         {
 

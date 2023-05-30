@@ -19,6 +19,8 @@ public class Rect : Box
     public bool _IsTransparent { get; private set; }
     public bool _ContainsEntity { get; set; }
     public float _posZ { get; private set; }
+    public int _distance { get; set;  }
+
 
     public Rect((int X, int Y) Coordinates, float Height, int TextureId, int floor, 
         int ceil, int topid, float pos_Z, (double X, double Y)[] vertex)
@@ -31,6 +33,7 @@ public class Rect : Box
         _CeilingId = ceil;
         _TopDownId = topid;
         _TexturePos = (0, 0);
+        _distance = 0;
 
         if (Height == 1 && pos_Z == 0)
             _IsTransparent = false;
@@ -87,6 +90,9 @@ public class Rect : Box
     public void Save(string path, BinaryWriter sw)
     {
         sw.Write(4);
+        
+        sw.Write(_distance);
+        
         sw.Write(_Coordinates.X);
         sw.Write(_Coordinates.Y);
         sw.Write((double)_posZ);
@@ -128,6 +134,8 @@ public class Rect : Box
         double x2;
         double y1;
         double y2;
+
+        var distance = sr.ReadInt32();
         
         x = sr.ReadInt32();
         y = sr.ReadInt32();
@@ -149,6 +157,7 @@ public class Rect : Box
 
         var tmp = new Rect((x,y),(float)height,text,floor,ceil,top,(float)z,new []{(x1,y1),(x2,y2)});
         tmp._TexturePos = ((float)xt, (float)yt);
+        tmp._distance = distance;
         return tmp;
     }
     

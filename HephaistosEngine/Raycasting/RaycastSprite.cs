@@ -26,35 +26,68 @@ public class RaycastSprite
         }
     }
 
-    public RaycastSprite((float X, float Y, float Z) Position, (float X, float Y, float Z) Size, 
+    public RaycastSprite((float X, float Y, float Z) Size, 
         int Texture,
-        (float X, float Y) TexturePosition, Carte map)
+        (float X, float Y) TexturePosition)
     {
-        X = Position.X;
-        Y = Position.Y;
-        Z = Position.Z;
+        X = 0;
+        Y = 0;
+        Z = 0;
 
         _Size = Size;
         _Texture = Texture;
         _TexturePosition = TexturePosition;
         _Angle = 0;
         _TextureList = new[] { Texture, Texture, Texture, Texture, Texture, Texture };
-        map.MoveEntity(this, (X, Y));
     }
     
-    public RaycastSprite((float X, float Y, float Z) Position, (float X, float Y, float Z) Size, 
-        int Texture, Carte map)
+    public RaycastSprite((float X, float Y, float Z) Size, 
+        int Texture)
     {
-        X = Position.X;
-        Y = Position.Y;
-        Z = Position.Z;
+        X = 0;
+        Y = 0;
+        Z = 0;
 
         _Size = Size;
         _Texture = Texture;
         _TexturePosition = (0,0);
         _Angle = 0;
         _TextureList = new[] { Texture, Texture, Texture, Texture, Texture, Texture };
-        map.MoveEntity(this, (X, Y));
+    }
+    
+    public void MoveEntity(Carte Map, (float X, float Y, float Z) Coord, RaycastSprite[] Entities)
+    {
+        for (int i = -1; i < 2; i++)
+        {
+            for (int j = -1; j < 2; j++)
+            {
+                if (X + i >= 0 && X + i < Map._Width 
+                                      && Y + j >= 0 && Y + j < Map._Height)
+                    foreach (var value in Map[(int)(X + i), (int)(Y + j)])
+                    {
+                        if (Entities.Any(x => (int)(x.X)-(int)(X+i) <= -1 || (int)(x.X)-(int)(X+i) >= 1
+                            && (int)(x.Y)-(int)(Y+i) <= -1 || (int)(x.Y)-(int)(Y+i) >= 1))
+                        value._ContainsEntity = false;
+                    }
+            }
+        }
+        
+        for (int i = -1; i < 2; i++)
+        {
+            for (int j = -1; j < 2; j++)
+            {
+                if (Coord.X + i >= 0 && Coord.X + i < Map._Width
+                                     && Coord.Y + j >= 0 && Coord.Y + j < Map._Height)
+                    foreach (var value in Map[(int)(Coord.X + i), (int)(Coord.Y + j)])
+                    {
+                        value._ContainsEntity = true;
+                    }
+            }
+        }
+
+        X = Coord.X;
+        Y = Coord.Y;
+        Z = Coord.Z;
     }
 
     public bool GetCollision(double x, double y)

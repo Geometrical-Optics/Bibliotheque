@@ -21,6 +21,7 @@ public class Cylinder : Box
     public bool _IsTransparent { get; private set; }
     public bool _ContainsEntity { get; set; }
     public float _posZ { get; private set; }
+    public int _distance { get; set;  }
 
     public Cylinder((int X, int Y) Coordinates, float Height, int TextureId, int floor, 
         int ceil, int topid, float pos_Z, float size)
@@ -35,6 +36,7 @@ public class Cylinder : Box
         _CeilingId = ceil;
         _TopDownId = topid;
         _TexturePos = (0, 0);
+        _distance = 0;
 
         if (Height == 1 && pos_Z == 0)
             _IsTransparent = false;
@@ -67,6 +69,7 @@ public class Cylinder : Box
     public void Save(string path, BinaryWriter sw)
     {
         sw.Write(2);
+        sw.Write(_distance);
         sw.Write(_Coordinates.X);
         sw.Write(_Coordinates.Y);
         sw.Write((double)_posZ);
@@ -97,6 +100,8 @@ public class Cylinder : Box
         int top;
         double height;
         double size;
+
+        var tmp2 = sr.ReadInt32();
         
         x = sr.ReadInt32();
         y = sr.ReadInt32();
@@ -115,6 +120,7 @@ public class Cylinder : Box
         var tmp = new Cylinder((x, y), (float)height, text, floor, ceil, top, (float)z, (float)Math.Sqrt(size));
 
         tmp._TexturePos = ((float)x1, (float)y1);
+        tmp._distance = tmp2;
 
         return tmp;
     }
