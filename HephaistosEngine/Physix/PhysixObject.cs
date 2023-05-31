@@ -65,13 +65,13 @@ public class PhysixObject
     }
 
 
-    public void Collision(PhysixObject andere)
+    public void Collision(PhysixObject other)
     {
-        float totMass = Mass + andere.Mass;
+        float totMass = Mass + other.Mass;
 
-        Vector3 newvel = ((Mass - andere.Mass) * Velocity + 2 * andere.Mass * andere.Velocity) / totMass;
+        Vector3 newvel = ((Mass - other.Mass) * Velocity + 2 * other.Mass * other.Velocity) / totMass;
         
-        andere.Velocity = ((andere.Mass - Mass) * andere.Velocity + 2 * Mass * Velocity) / totMass;
+        other.Velocity = ((other.Mass - Mass) * other.Velocity + 2 * Mass * Velocity) / totMass;
 
         Velocity = newvel;
         
