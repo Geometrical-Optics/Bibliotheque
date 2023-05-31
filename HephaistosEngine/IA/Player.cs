@@ -9,7 +9,7 @@ public class Player
 
         public Player()
         {
-            Health = 100;
+            Health = 1000;
             Bag = new List<Item.Item>();
             AssaultWeapon w = new AssaultWeapon("Sword", 1);
             Bag.Add(w);

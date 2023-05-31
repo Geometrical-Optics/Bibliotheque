@@ -7,14 +7,14 @@ public class PatrouilleurDiag : NPC
     public int Health;
     public bool avance = true;
     
-    public PatrouilleurDiag(int health, (double X, double Y) coordinates, Carte board, float speed) : base(health, coordinates, board, speed)
+    public PatrouilleurDiag(int health, (double X, double Y, double Z) coordinates, Carte board, float speed) : base(health, coordinates, board, speed)
     {
         Symbol = "D";
         Health = health;
     }
 
     
-    public bool CanBlowUp((double X, double Y) coordinates_player)
+    public bool CanBlowUp((double X, double Y, double Z) coordinates_player)
     {
         if (Math.Abs(Coordinates.X - coordinates_player.X) < 1.2 && Math.Abs(Coordinates.Y - coordinates_player.Y) < 1.2)
             return true;
@@ -25,9 +25,15 @@ public class PatrouilleurDiag : NPC
     public void BlowUp(Player _player)
     {
         if (_player.Health - Health > 0)
+        {
             _player.Health -= Health;
+            Health = 0;
+        }
         else
+        {
             _player.Health = 0;
+            Health = 0;
+        }
         
     }
     
@@ -40,7 +46,7 @@ public class PatrouilleurDiag : NPC
     }
     
     
-    public void Update((double X, double Y) coordinates_player, Player _player)
+    public void Update((double X, double Y, double Z) coordinates_player, Player _player)
     {
         if (avance)
         {
@@ -49,9 +55,10 @@ public class PatrouilleurDiag : NPC
                 BlowUp(_player);
             }
             
-            if ((int)Coordinates.X != Board.GetLength(0) && (int)Coordinates.Y != Board.GetLength(1) && !Board[(int)(Coordinates.X + 0.1*Speed), (int)(Coordinates.Y + 0.1*Speed)].IsColliding((Coordinates.X + 0.1*Speed, Coordinates.Y + 0.1*Speed)))
+            
+            if (Board.IsColliding(( (Coordinates.X + 0.1*Speed), Coordinates.Y + 0.1*Speed, (float)Coordinates.Z)) == false)
             {
-                Coordinates = (Coordinates.X + 0.1*Speed, Coordinates.Y + 0.1*Speed);
+                Coordinates = (Coordinates.X + 0.1*Speed, Coordinates.Y + 0.1*Speed, Coordinates.Z);
             }
             else
             {
@@ -66,9 +73,10 @@ public class PatrouilleurDiag : NPC
                 BlowUp(_player);
             }
             
-            if ((int)Coordinates.X != 0 && (int)Coordinates.Y != 0 && !Board[(int)(Coordinates.X - 0.1*Speed), (int)(Coordinates.Y - 0.1*Speed)].IsColliding((Coordinates.X - 0.1*Speed, Coordinates.Y - 0.1*Speed)))
+            
+            if (Board.IsColliding(( (Coordinates.X - 0.1*Speed), Coordinates.Y - 0.1*Speed, (float)Coordinates.Z)) == false)
             {
-                Coordinates = (Coordinates.X - 0.1*Speed, Coordinates.Y - 0.1*Speed);
+                Coordinates = (Coordinates.X - 0.1*Speed, Coordinates.Y - 0.1*Speed, Coordinates.Z);
             }
             else
             {
@@ -88,9 +96,9 @@ public class PatrouilleurDiag : NPC
                 Console.WriteLine($"Your health is now: {npc.Health}");
             }
             
-            if ((int)Coordinates.X != Board.GetLength(0) && (int)Coordinates.Y != Board.GetLength(1) && !Board[(int)(Coordinates.X + 0.1*Speed), (int)(Coordinates.Y + 0.1*Speed)].IsColliding((Coordinates.X + 0.1*Speed, Coordinates.Y + 0.1*Speed)))
+            if (Board.IsColliding(( (Coordinates.X + 0.1*Speed), Coordinates.Y + 0.1*Speed, (float)Coordinates.Z)) == false)
             {
-                Coordinates = (Coordinates.X + 0.1*Speed, Coordinates.Y + 0.1*Speed);
+                Coordinates = (Coordinates.X + 0.1*Speed, Coordinates.Y + 0.1*Speed, Coordinates.Z);
             }
             else
             {
@@ -105,9 +113,9 @@ public class PatrouilleurDiag : NPC
                 Console.WriteLine($"Your health is now: {npc.Health}");
             }
             
-            if ((int)Coordinates.X != 0 && (int)Coordinates.Y != 0 && !Board[(int)(Coordinates.X - 0.1*Speed), (int)(Coordinates.Y - 0.1*Speed)].IsColliding((Coordinates.X - 0.1*Speed, Coordinates.Y - 0.1*Speed)))
+            if (Board.IsColliding(( (Coordinates.X - 0.1*Speed), Coordinates.Y - 0.1*Speed, (float)Coordinates.Z)) == false)
             {
-                Coordinates = (Coordinates.X - 0.1*Speed, Coordinates.Y - 0.1*Speed);
+                Coordinates = (Coordinates.X - 0.1*Speed, Coordinates.Y - 0.1*Speed, Coordinates.Z);
             }
             else
             {
