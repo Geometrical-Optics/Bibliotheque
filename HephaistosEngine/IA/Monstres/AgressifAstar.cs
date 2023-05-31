@@ -14,25 +14,23 @@ public class AgressifAstar : NPC
     private AssaultWeapon Weapon;
 
     public int Health;
-    //private Player _player;
 
 
-    public AgressifAstar(int health, (double X, double Y) coordinates, Carte board, float speed) : base(health, coordinates,
+    public AgressifAstar(int health, (double X, double Y, double Z) coordinates, Carte board, float speed) : base(health, coordinates,
         board, speed)
     {
         Health = health;
         Symbol = "A";
         Vu = false;
         Weapon = new AssaultWeapon("Sword", 50);
-        //_player = new Player();
     }
 
-    public double Distance((double X, double Y) coor, (double X, double Y) coordinates_player)
+    public double Distance((double X, double Y, double Z) coor, (double X, double Y, double Z) coordinates_player)
     {
         return Math.Sqrt(Math.Pow(coor.X - coordinates_player.X, 2) + Math.Pow(coor.Y - coordinates_player.Y, 2));
     }
 
-    public bool testBlacklist((double, double) coor, Queue<(double, double)> stack)
+    public bool testBlacklist((double, double, double) coor, Queue<(double, double, double)> stack)
     {
         if (stack.Contains(coor))
             return true;
@@ -40,45 +38,14 @@ public class AgressifAstar : NPC
             return false;
     }
 
-    public (double, double) PathFinding((double X, double Y) coordinates_player)
+    public (double, double, double) PathFinding((double X, double Y, double Z) coordinates_player)
     {
-        Queue<(double, double)> Path = new Queue<(double, double)>();
-        Queue<(double, double)> Blacklist = new Queue<(double, double)>();
-        /*
-        while (Path.Count < 3 && Coordinates != coordinates_player)
-        {
-            //if (!Board[(int)aux(coordinates_player).X, (int)aux(coordinates_player).Y]
-            //        .IsColliding(aux(coordinates_player)))
-            //    Blacklist.Enqueue(Coordinates);
-            //if (!testBlacklist(aux(coordinates_player), Blacklist))
-            if (valid(aux(coordinates_player)))
-            {
-                Path.Enqueue(aux(coordinates_player));
-                Coordinates = aux(coordinates_player);
-            }
-            //else if (Path.Count != 0)
-              //  Coordinates = Path.Dequeue();
-        }
-        */
-        /*
-        while (Coordinates != coordinates_player)
-        {
-            (double, double) coordinates = aux(coordinates_player);
-            if (!Board[(int)aux(coordinates_player).X, (int)aux(coordinates_player).Y]
-                    .IsColliding(aux(coordinates_player)))
-                Blacklist.Enqueue(Coordinates);
-            if (!testBlacklist(aux(coordinates_player), Blacklist))
-            {
-                Path.Enqueue(aux(coordinates_player));
-                Coordinates = aux(coordinates_player);
-            }
-            else if (Path.Count != 0)
-                Coordinates = Path.Dequeue();
-        }
-        */
+        Queue<(double, double, double)> Path = new Queue<(double, double, double)>();
+        Queue<(double, double, double)> Blacklist = new Queue<(double, double, double)>();
+        
         while (Path.Count < 15 && Coordinates != coordinates_player)
         {
-            (double, double) coordinates = aux(coordinates_player);
+            (double, double, double) coordinates = aux(coordinates_player);
             if (!valid(coordinates))
                 Blacklist.Enqueue(Coordinates);
             if (!testBlacklist(coordinates, Blacklist))
@@ -93,11 +60,10 @@ public class AgressifAstar : NPC
         return Path.Dequeue();
     }
 
-    public bool valid((double X, double Y) coor)
+    public bool valid((double X, double Y, double Z) coor)
     {
-        //Console.WriteLine(coor.X >= 0 && coor.X < Board.GetLength(0) && coor.Y >= 0 && coor.Y < Board.GetLength(1) && Board[(int)coor.X, (int)coor.Y] is Empty);
-        if (coor.X >= 0 && coor.X < Board.GetLength(0) && coor.Y >= 0 && coor.Y < Board.GetLength(1) && Board[(int)coor.X, (int)coor.Y] is Empty)
-            //Board[(int)Math.Ceiling(coor.X), (int)Math.Ceiling(coor.Y)] is Empty)
+        
+        if (Board.IsColliding(( coor.X, coor.Y , (float)coor.Z)) == false)
         {
             return true;
         }
@@ -107,8 +73,8 @@ public class AgressifAstar : NPC
         }
     }
 
-    public (double, double) min((double X, double Y) coor1, (double X, double Y) coor2, (double X, double Y) coor3,
-        (double X, double Y) coordinates_player)
+    public (double, double, double) min((double X, double Y, double Z) coor1, (double X, double Y, double Z) coor2, (double X, double Y, double Z) coor3,
+        (double X, double Y, double Z) coordinates_player)
     {
         if (valid(coor1) && valid(coor2) && valid(coor3))
         {
@@ -158,7 +124,7 @@ public class AgressifAstar : NPC
             return coor3;
     }
 
-    public (double X, double Y) aux((double X, double Y) coordinates_player)
+    public (double X, double Y, double Z) aux((double X, double Y, double Z) coordinates_player)
     {
         double decx = 0, decy = 0;
 
@@ -172,16 +138,16 @@ public class AgressifAstar : NPC
             decy = (coordinates_player.Y - Coordinates.Y > 0) ? 0.1 * Speed : -0.1 * Speed;
 
         if (decx == 0)
-            return (Coordinates.X, Coordinates.Y + decy);
+            return (Coordinates.X, Coordinates.Y + decy, 0);
         if (decy == 0)
-            return (Coordinates.X + decx, Coordinates.Y);
+            return (Coordinates.X + decx, Coordinates.Y, 0);
         
-        return min((Coordinates.X + decx, Coordinates.Y + decy), (Coordinates.X + decx, Coordinates.Y),
-            (Coordinates.X, Coordinates.Y + decy), coordinates_player);
+        return min((Coordinates.X + decx, Coordinates.Y + decy, Coordinates.Z), (Coordinates.X + decx, Coordinates.Y, Coordinates.Z),
+            (Coordinates.X, Coordinates.Y + decy, Coordinates.Z), coordinates_player);
     }
 
 
-    public bool CanAttack((double X, double Y) coordinates_player)
+    public bool CanAttack((double X, double Y, double Z) coordinates_player)
     {
         if (Math.Abs(Coordinates.X - coordinates_player.X) < 0.8 && Math.Abs(Coordinates.Y - coordinates_player.Y) < 0.8)
             return true;
@@ -189,7 +155,7 @@ public class AgressifAstar : NPC
             return false;
     }
     
-    public bool CanAttackNPC((double X, double Y) coordinates_player)
+    public bool CanAttackNPC((double X, double Y, double Z) coordinates_player)
     {
         if (Math.Abs(Coordinates.X - coordinates_player.X) < 0.4 && Math.Abs(Coordinates.Y - coordinates_player.Y) < 0.4)
             return true;
@@ -197,7 +163,7 @@ public class AgressifAstar : NPC
             return false;
     }
 
-    public bool CanMove((double X, double Y) coordinates_player)
+    public bool CanMove((double X, double Y, double Z) coordinates_player)
     {
         if (Math.Abs(Coordinates.X - coordinates_player.X) < Board.GetLength(0)/3 &&
             Math.Abs(Coordinates.Y - coordinates_player.Y) < Board.GetLength(1)/3 )
@@ -206,7 +172,7 @@ public class AgressifAstar : NPC
             return false;
     }
 
-    public void Attack((double X, double Y) coordinates_player, Player _player)
+    public void Attack((double X, double Y, double Z) coordinates_player, Player _player)
     {
         if (_player.Health - Weapon.Damage > 0)
             _player.Health -= Weapon.Damage;
@@ -222,14 +188,13 @@ public class AgressifAstar : NPC
             npc.Health = 0;
     }
 
-    public void Update((double X, double Y) coordinates_player, Player _player)
+    public void Update((double X, double Y, double Z) coordinates_player, Player _player)
     {
-        //if (_player.IsAlive())
-        //{
+        
             Vu = CanMove(coordinates_player);
             if (Vu & Coordinates != coordinates_player)
             {
-                (double X, double Y) oui = PathFinding(coordinates_player);
+                (double X, double Y, double Z) oui = PathFinding(coordinates_player);
                 Coordinates = oui;
             }
 
@@ -239,7 +204,6 @@ public class AgressifAstar : NPC
                 Attack(coordinates_player, _player);
                 Console.WriteLine($"Your health is now: {_player.Health}");
             }
-        // }
 
     }
 
@@ -247,7 +211,7 @@ public class AgressifAstar : NPC
     {
         if (Coordinates != npc.Coordinates)
         {
-            (double X, double Y) oui = PathFinding(npc.Coordinates);
+            (double X, double Y, double Z) oui = PathFinding(npc.Coordinates);
             Coordinates = oui;
         }
 

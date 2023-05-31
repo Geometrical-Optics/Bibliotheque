@@ -35,7 +35,7 @@ public class IAManager
         monstres.Clear();
     }
 
-    public void UpdateAll((double X, double Y) coordinates_player)
+    public void UpdateAll((double X, double Y, double Z) coordinates_player)
     {
         foreach (NPC npc in _Monstres)
         {
@@ -62,10 +62,9 @@ public class IAManager
     
     public void UpdateAllNPC()
     {
-        
         for (int i = 0; i < _Monstres.Count; i++)
         {
-            if (i % 2 == 0 || i == 0)
+            if ((i % 2 == 0 || i == 0) && i < _Monstres.Count)
             {
                 switch (_Monstres[i])
                 {
@@ -88,27 +87,29 @@ public class IAManager
             }
             else
             {
-                switch (_Monstres[i])
+                if (i != 0)
                 {
-                    case AgressifAstar n:
-                        n.UpdateNPC(_Monstres[i - 1]);
-                        break;
-                    case Fugitif n:
-                        n.UpdateNPC(_Monstres[i - 1]);
-                        break;
-                    case PatrouilleurX n:
-                        n.UpdateNPC(_Monstres[i - 1]);
-                        break;
-                    case PatrouilleurY n:
-                        n.UpdateNPC(_Monstres[i - 1]);
-                        break;
-                    case PatrouilleurDiag n:
-                        n.UpdateNPC(_Monstres[i - 1]);
-                        break;
+                    switch (_Monstres[i])
+                    {
+                        case AgressifAstar n:
+                            n.UpdateNPC(_Monstres[i - 1]);
+                            break;
+                        case Fugitif n:
+                            n.UpdateNPC(_Monstres[i - 1]);
+                            break;
+                        case PatrouilleurX n:
+                            n.UpdateNPC(_Monstres[i - 1]);
+                            break;
+                        case PatrouilleurY n:
+                            n.UpdateNPC(_Monstres[i - 1]);
+                            break;
+                        case PatrouilleurDiag n:
+                            n.UpdateNPC(_Monstres[i - 1]);
+                            break;
+                    }
                 }
             }
-        }
-        /*
+            /*
         if (_Monstres.Count > 1)
         {
             switch (_Monstres[0])
@@ -148,7 +149,7 @@ public class IAManager
                     n.UpdateNPC(_Monstres[0]);
                     break;
             }
+            */
         }
-        */
     }
 }
